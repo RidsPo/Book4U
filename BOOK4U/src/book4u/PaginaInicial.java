@@ -1,14 +1,12 @@
 package book4u;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 
-/**
- *
- * @author xavic
- */
-public class PaginaInicial {
+public class PaginaInicial extends javax.swing.JPanel {
+    
+    public PaginaInicial() {
+    //initComponents();
+    }
     
 }
