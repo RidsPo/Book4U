@@ -8,12 +8,12 @@ package book4u;
  *
  * @author xavic
  */
-public class PaginaInicial extends javax.swing.JPanel {
+public class PaginaRegistroPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form PaginaInicial
+     * Creates new form PaginaRegistroPanel
      */
-    public PaginaInicial() {
+    public PaginaRegistroPanel() {
         initComponents();
     }
 
