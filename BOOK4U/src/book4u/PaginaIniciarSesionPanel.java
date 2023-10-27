@@ -85,6 +85,10 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
 
     private void BotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroActionPerformed
         // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaRegistroPanel ());
+        marco.setVisible(true);
     }//GEN-LAST:event_BotonRegistroActionPerformed
 
     private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
