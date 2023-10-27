@@ -4,6 +4,9 @@
  */
 package book4u;
 
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author xavic
@@ -26,16 +29,82 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        NombreUsuario = new javax.swing.JTextField();
+        ContraseñaUsuario = new javax.swing.JTextField();
+        BotonRegistro = new javax.swing.JButton();
+        BotonInicioSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        NombreUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
+        NombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreUsuarioActionPerformed(evt);
+            }
+        });
+        add(NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
+
+        ContraseñaUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
+        ContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaUsuarioActionPerformed(evt);
+            }
+        });
+        add(ContraseñaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 740, 450, 50));
+
+        BotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton Registro.png"))); // NOI18N
+        BotonRegistro.setBorder(null);
+        BotonRegistro.setBorderPainted(false);
+        BotonRegistro.setContentAreaFilled(false);
+        BotonRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonRegistroActionPerformed(evt);
+            }
+        });
+        add(BotonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 900, -1, -1));
+
+        BotonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton Inicio sesion.png"))); // NOI18N
+        BotonInicioSesion.setBorder(null);
+        BotonInicioSesion.setBorderPainted(false);
+        BotonInicioSesion.setContentAreaFilled(false);
+        BotonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonInicioSesionActionPerformed(evt);
+            }
+        });
+        add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 900, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paginIniciarSesion.png"))); // NOI18N
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ContraseñaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaUsuarioActionPerformed
+
+    private void BotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonRegistroActionPerformed
+
+    private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
+        // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaPrincipalPanel ());
+        marco.setVisible(true);
+    }//GEN-LAST:event_BotonInicioSesionActionPerformed
+
+    private void NombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreUsuarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonInicioSesion;
+    private javax.swing.JButton BotonRegistro;
+    private javax.swing.JTextField ContraseñaUsuario;
+    private javax.swing.JTextField NombreUsuario;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
