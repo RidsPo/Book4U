@@ -29,7 +29,7 @@
     <Component class="javax.swing.JButton" name="jBotonRegistro">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/BOTON Registrar-se.png"/>
+          <Image iconType="3" name="/img/Boton_Regristro_PaginaInicial.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
@@ -54,7 +54,7 @@
     <Component class="javax.swing.JButton" name="jBotonIniciarSesion">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/BOTON Iniciar Sesion.png"/>
+          <Image iconType="3" name="/img/Boton_IniciarSesion_PaginaInicial.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
@@ -77,7 +77,7 @@
     <Component class="javax.swing.JLabel" name="jFondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/PaginaInicial.png"/>
+          <Image iconType="3" name="/img/Fondo_PaginaInicial.png"/>
         </Property>
       </Properties>
       <Constraints>

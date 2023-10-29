@@ -29,86 +29,88 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        NombreUsuario = new javax.swing.JTextField();
-        ContraseñaUsuario = new javax.swing.JTextField();
-        BotonRegistro = new javax.swing.JButton();
-        BotonInicioSesion = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jNombreUsuario = new javax.swing.JTextField();
+        jContraseñaUsuario = new javax.swing.JTextField();
+        jBotonRegistro = new javax.swing.JButton();
+        jBotonInicioSesion = new javax.swing.JButton();
+        jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        NombreUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
-        NombreUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jNombreUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
+        jNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreUsuarioActionPerformed(evt);
+                jNombreUsuarioActionPerformed(evt);
             }
         });
-        add(NombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
+        add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
 
-        ContraseñaUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
-        ContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jContraseñaUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
+        jContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaUsuarioActionPerformed(evt);
+                jContraseñaUsuarioActionPerformed(evt);
             }
         });
-        add(ContraseñaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 740, 450, 50));
+        add(jContraseñaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 740, 450, 50));
 
-        BotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton Registro.png"))); // NOI18N
-        BotonRegistro.setBorder(null);
-        BotonRegistro.setBorderPainted(false);
-        BotonRegistro.setContentAreaFilled(false);
-        BotonRegistro.addActionListener(new java.awt.event.ActionListener() {
+        jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Registro_PaginaIniciarSesion.png"))); // NOI18N
+        jBotonRegistro.setBorder(null);
+        jBotonRegistro.setBorderPainted(false);
+        jBotonRegistro.setContentAreaFilled(false);
+        jBotonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonRegistroActionPerformed(evt);
+                jBotonRegistroActionPerformed(evt);
             }
         });
-        add(BotonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 900, -1, -1));
+        add(jBotonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 900, 340, 100));
 
-        BotonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton Inicio sesion.png"))); // NOI18N
-        BotonInicioSesion.setBorder(null);
-        BotonInicioSesion.setBorderPainted(false);
-        BotonInicioSesion.setContentAreaFilled(false);
-        BotonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
+        jBotonInicioSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_IniciarSesion_PaginaIniciarSesion.png"))); // NOI18N
+        jBotonInicioSesion.setBorder(null);
+        jBotonInicioSesion.setBorderPainted(false);
+        jBotonInicioSesion.setContentAreaFilled(false);
+        jBotonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonInicioSesionActionPerformed(evt);
+                jBotonInicioSesionActionPerformed(evt);
             }
         });
-        add(BotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 900, -1, -1));
+        add(jBotonInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 900, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paginIniciarSesion.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginIniciarSesion.png"))); // NOI18N
+        add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ContraseñaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaUsuarioActionPerformed
+    private void jContraseñaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContraseñaUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ContraseñaUsuarioActionPerformed
+    }//GEN-LAST:event_jContraseñaUsuarioActionPerformed
 
-    private void BotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistroActionPerformed
+    private void jBotonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonRegistroActionPerformed
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaRegistroPanel ());
         marco.setVisible(true);
-    }//GEN-LAST:event_BotonRegistroActionPerformed
+    }//GEN-LAST:event_jBotonRegistroActionPerformed
 
-    private void BotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInicioSesionActionPerformed
+    private void jBotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonInicioSesionActionPerformed
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaPrincipalPanel ());
         marco.setVisible(true);
-    }//GEN-LAST:event_BotonInicioSesionActionPerformed
+    }//GEN-LAST:event_jBotonInicioSesionActionPerformed
 
-    private void NombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreUsuarioActionPerformed
+    private void jNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNombreUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreUsuarioActionPerformed
+    }//GEN-LAST:event_jNombreUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonInicioSesion;
-    private javax.swing.JButton BotonRegistro;
-    private javax.swing.JTextField ContraseñaUsuario;
-    private javax.swing.JTextField NombreUsuario;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jBotonInicioSesion;
+    private javax.swing.JButton jBotonRegistro;
+    private javax.swing.JTextField jContraseñaUsuario;
+    private javax.swing.JLabel jFondo;
+    private javax.swing.JTextField jNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }

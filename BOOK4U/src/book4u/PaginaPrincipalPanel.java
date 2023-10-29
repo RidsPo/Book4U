@@ -26,56 +26,60 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotonNovaReserva = new javax.swing.JButton();
-        BotonLesMevesReserves = new javax.swing.JButton();
-        BotonHistorial = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jBotonNovaReserva = new javax.swing.JButton();
+        jBotonLesMevesReserves = new javax.swing.JButton();
+        jBotonHistorial = new javax.swing.JButton();
+        jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonNovaReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Botón nova reserva.png"))); // NOI18N
-        BotonNovaReserva.setBorderPainted(false);
-        BotonNovaReserva.setContentAreaFilled(false);
-        BotonNovaReserva.addActionListener(new java.awt.event.ActionListener() {
+        jBotonNovaReserva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_NuevaReserva_PaginaPrincipal.png"))); // NOI18N
+        jBotonNovaReserva.setBorderPainted(false);
+        jBotonNovaReserva.setContentAreaFilled(false);
+        jBotonNovaReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonNovaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonNovaReservaActionPerformed(evt);
+                jBotonNovaReservaActionPerformed(evt);
             }
         });
-        add(BotonNovaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 190, 70));
+        add(jBotonNovaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 230, 100));
 
-        BotonLesMevesReserves.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton les meves reserves.png"))); // NOI18N
-        BotonLesMevesReserves.setBorder(null);
-        BotonLesMevesReserves.setBorderPainted(false);
-        BotonLesMevesReserves.addActionListener(new java.awt.event.ActionListener() {
+        jBotonLesMevesReserves.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_MisReservas_PaginaPrincipal.png"))); // NOI18N
+        jBotonLesMevesReserves.setBorder(null);
+        jBotonLesMevesReserves.setBorderPainted(false);
+        jBotonLesMevesReserves.setContentAreaFilled(false);
+        jBotonLesMevesReserves.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonLesMevesReserves.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonLesMevesReservesActionPerformed(evt);
+                jBotonLesMevesReservesActionPerformed(evt);
             }
         });
-        add(BotonLesMevesReserves, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, 280, 70));
+        add(jBotonLesMevesReserves, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 310, 110));
 
-        BotonHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton Historial.png"))); // NOI18N
-        BotonHistorial.setBorder(null);
-        BotonHistorial.setBorderPainted(false);
-        BotonHistorial.setContentAreaFilled(false);
-        add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
+        jBotonHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Historial_PaginaPrincipal.png"))); // NOI18N
+        jBotonHistorial.setBorder(null);
+        jBotonHistorial.setBorderPainted(false);
+        jBotonHistorial.setContentAreaFilled(false);
+        jBotonHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(jBotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paginaPrincipal.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrincipal.png"))); // NOI18N
+        add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonNovaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNovaReservaActionPerformed
+    private void jBotonNovaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonNovaReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonNovaReservaActionPerformed
+    }//GEN-LAST:event_jBotonNovaReservaActionPerformed
 
-    private void BotonLesMevesReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLesMevesReservesActionPerformed
+    private void jBotonLesMevesReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonLesMevesReservesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonLesMevesReservesActionPerformed
+    }//GEN-LAST:event_jBotonLesMevesReservesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonHistorial;
-    private javax.swing.JButton BotonLesMevesReserves;
-    private javax.swing.JButton BotonNovaReserva;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jBotonHistorial;
+    private javax.swing.JButton jBotonLesMevesReserves;
+    private javax.swing.JButton jBotonNovaReserva;
+    private javax.swing.JLabel jFondo;
     // End of variables declaration//GEN-END:variables
 }

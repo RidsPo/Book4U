@@ -37,7 +37,7 @@ public class PaginaInicial extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(1920, 1080));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BOTON Registrar-se.png"))); // NOI18N
+        jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Regristro_PaginaInicial.png"))); // NOI18N
         jBotonRegistro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jBotonRegistro.setBorderPainted(false);
         jBotonRegistro.setContentAreaFilled(false);
@@ -48,9 +48,8 @@ public class PaginaInicial extends javax.swing.JPanel {
             }
         });
         add(jBotonRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 580, 530, -1));
-        jBotonRegistro.getAccessibleContext().setAccessibleParent(jFondo);
 
-        jBotonIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BOTON Iniciar Sesion.png"))); // NOI18N
+        jBotonIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_IniciarSesion_PaginaInicial.png"))); // NOI18N
         jBotonIniciarSesion.setBorder(null);
         jBotonIniciarSesion.setBorderPainted(false);
         jBotonIniciarSesion.setContentAreaFilled(false);
@@ -62,10 +61,7 @@ public class PaginaInicial extends javax.swing.JPanel {
         });
         add(jBotonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 350, 530, 130));
 
-        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaInicial.png"))); // NOI18N
-        jFondo.setMaximumSize(new java.awt.Dimension(1920, 1080));
-        jFondo.setMinimumSize(new java.awt.Dimension(1920, 1080));
-        jFondo.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaInicial.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
     }// </editor-fold>//GEN-END:initComponents
 

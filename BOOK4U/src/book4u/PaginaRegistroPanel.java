@@ -33,9 +33,9 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jBotoniniciarSession = new javax.swing.JButton();
+        jBotonSiguiente = new javax.swing.JButton();
+        jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -56,52 +56,59 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
         });
         add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 492, 440, 30));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonIniciarSesion.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBotoniniciarSession.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_IniciarSesion_PaginaRegistro1.png"))); // NOI18N
+        jBotoniniciarSession.setBorder(null);
+        jBotoniniciarSession.setBorderPainted(false);
+        jBotoniniciarSession.setContentAreaFilled(false);
+        jBotoniniciarSession.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotoniniciarSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBotoniniciarSessionActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 930, -1, -1));
+        add(jBotoniniciarSession, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 930, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonSiguiente.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBotonSiguiente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Siguiente_PaginaRegistro1.png"))); // NOI18N
+        jBotonSiguiente.setBorder(null);
+        jBotonSiguiente.setBorderPainted(false);
+        jBotonSiguiente.setContentAreaFilled(false);
+        jBotonSiguiente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBotonSiguienteActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 930, -1, -1));
+        add(jBotonSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 930, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaRegistro.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaRegistro1.png"))); // NOI18N
+        add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+    private void jBotoniniciarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotoniniciarSessionActionPerformed
+         // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaIniciarSesionPanel());
-        marco.setVisible(true);    // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        marco.setVisible(true);    
+    }//GEN-LAST:event_jBotoniniciarSessionActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBotonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonSiguienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaRegistro2Panel());
+        marco.setVisible(true);   
+    }//GEN-LAST:event_jBotonSiguienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jBotonSiguiente;
+    private javax.swing.JButton jBotoniniciarSession;
+    private javax.swing.JLabel jFondo;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
