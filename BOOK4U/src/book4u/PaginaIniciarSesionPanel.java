@@ -13,6 +13,8 @@ import javax.swing.SwingUtilities;
  */
 public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
 
+    private boolean passwordVisible = false; // Variable para controlar la visibilidad de la contraseña
+    
     /**
      * Creates new form PaginaIniciarSesionPanel
      */
@@ -30,6 +32,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jNombreUsuario = new javax.swing.JTextField();
+        BotonMostrar = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jBotonRegistro = new javax.swing.JButton();
         jBotonInicioSesion = new javax.swing.JButton();
@@ -47,9 +50,23 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         });
         add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
 
+        BotonMostrar.setText("VER");
+        BotonMostrar.setFocusPainted(false);
+        BotonMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonMostrarActionPerformed(evt);
+            }
+        });
+        add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 760, 60, -1));
+
         jPasswordField1.setBackground(new java.awt.Color(184, 221, 140));
         jPasswordField1.setBorder(null);
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 742, 430, 60));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField1ActionPerformed(evt);
+            }
+        });
+        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 742, 370, 60));
 
         jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Registro_PaginaIniciarSesion.png"))); // NOI18N
         jBotonRegistro.setBorder(null);
@@ -101,8 +118,23 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jNombreUsuarioActionPerformed
 
+    private void BotonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMostrarActionPerformed
+        // TODO add your handling code here:
+        passwordVisible = !passwordVisible; // Alternar el estado
+    if (passwordVisible) {
+        jPasswordField1.setEchoChar((char) 0); // Mostrar caracteres
+    } else {
+        jPasswordField1.setEchoChar('*'); // Ocultar caracteres
+    }
+    }//GEN-LAST:event_BotonMostrarActionPerformed
+
+    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonMostrar;
     private javax.swing.JButton jBotonInicioSesion;
     private javax.swing.JButton jBotonRegistro;
     private javax.swing.JLabel jFondo;
