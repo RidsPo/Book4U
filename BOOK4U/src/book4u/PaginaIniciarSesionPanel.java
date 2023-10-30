@@ -56,6 +56,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         jBotonRegistro.setBorderPainted(false);
         jBotonRegistro.setContentAreaFilled(false);
         jBotonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonRegistro.setFocusPainted(false);
         jBotonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonRegistroActionPerformed(evt);
@@ -68,6 +69,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         jBotonInicioSesion.setBorderPainted(false);
         jBotonInicioSesion.setContentAreaFilled(false);
         jBotonInicioSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonInicioSesion.setFocusPainted(false);
         jBotonInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonInicioSesionActionPerformed(evt);

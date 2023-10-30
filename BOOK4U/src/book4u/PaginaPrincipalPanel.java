@@ -37,6 +37,7 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonNovaReserva.setBorderPainted(false);
         jBotonNovaReserva.setContentAreaFilled(false);
         jBotonNovaReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonNovaReserva.setFocusPainted(false);
         jBotonNovaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonNovaReservaActionPerformed(evt);
@@ -49,6 +50,7 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonLesMevesReserves.setBorderPainted(false);
         jBotonLesMevesReserves.setContentAreaFilled(false);
         jBotonLesMevesReserves.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonLesMevesReserves.setFocusPainted(false);
         jBotonLesMevesReserves.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonLesMevesReservesActionPerformed(evt);
@@ -61,6 +63,7 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonHistorial.setBorderPainted(false);
         jBotonHistorial.setContentAreaFilled(false);
         jBotonHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonHistorial.setFocusPainted(false);
         add(jBotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrincipal.png"))); // NOI18N
