@@ -39,16 +39,20 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField1.setBorder(null);
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 830, 440, 30));
 
-        jTextField2.setText("jTextField1");
+        jTextField2.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField2.setBorder(null);
         add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 720, 440, 30));
 
-        jTextField3.setText("jTextField1");
+        jTextField3.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField3.setBorder(null);
         add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 610, 440, 30));
 
-        jTextField4.setText("jTextField1");
+        jTextField4.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField4.setBorder(null);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);

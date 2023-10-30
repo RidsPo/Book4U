@@ -31,6 +31,10 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
 
         jBotonVolver = new javax.swing.JButton();
         jBotonRegistrar = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jPasswordField2 = new javax.swing.JPasswordField();
+        jPasswordField1 = new javax.swing.JPasswordField();
         jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,6 +63,22 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
         });
         add(jBotonRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 910, 290, 90));
 
+        jTextField1.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField1.setBorder(null);
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 440, 440, 30));
+
+        jTextField5.setBackground(new java.awt.Color(184, 221, 140));
+        jTextField5.setBorder(null);
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 310, 440, 30));
+
+        jPasswordField2.setBackground(new java.awt.Color(184, 221, 140));
+        jPasswordField2.setBorder(null);
+        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 692, 430, 30));
+
+        jPasswordField1.setBackground(new java.awt.Color(184, 221, 140));
+        jPasswordField1.setBorder(null);
+        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 430, 30));
+
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaRegistro2.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -84,5 +104,9 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jBotonVolver;
     private javax.swing.JLabel jFondo;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField jPasswordField2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
