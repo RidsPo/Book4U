@@ -4,6 +4,7 @@
  */
 package book4u;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -35,6 +36,7 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jPasswordField2 = new javax.swing.JPasswordField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
         jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -79,6 +81,15 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
         jPasswordField1.setBorder(null);
         add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 570, 430, 30));
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setText("Seleccionar imagen...");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 810, 460, 50));
+
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaRegistro2.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -99,10 +110,20 @@ public class PaginaRegistro2Panel extends javax.swing.JPanel {
         marco.setVisible(true);
     }//GEN-LAST:event_jBotonVolverActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        if(jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
+            
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonRegistrar;
     private javax.swing.JButton jBotonVolver;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jFondo;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
