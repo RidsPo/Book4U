@@ -37,6 +37,8 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jNombreUsuario.setBackground(new java.awt.Color(184, 221, 140));
+        jNombreUsuario.setBorder(null);
         jNombreUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
         jNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,6 +47,8 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         });
         add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
 
+        jContraseñaUsuario.setBackground(new java.awt.Color(184, 221, 140));
+        jContraseñaUsuario.setBorder(null);
         jContraseñaUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
         jContraseñaUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
