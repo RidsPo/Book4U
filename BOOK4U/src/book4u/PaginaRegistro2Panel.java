@@ -103,21 +103,31 @@ private boolean passwordVisible2 = false;
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 810, 460, 50));
 
-        jButton2.setText("VER");
+        jButton2.setBackground(new java.awt.Color(184, 221, 140));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 700, 70, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 690, 40, 40));
 
-        jButton3.setText("VER");
+        jButton3.setBackground(new java.awt.Color(184, 221, 140));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 570, 70, -1));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 560, 40, 40));
 
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaRegistro2.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

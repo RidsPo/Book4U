@@ -50,14 +50,18 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         });
         add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
 
-        BotonMostrar.setText("VER");
+        BotonMostrar.setBackground(new java.awt.Color(184, 221, 140));
+        BotonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        BotonMostrar.setBorder(null);
+        BotonMostrar.setBorderPainted(false);
+        BotonMostrar.setContentAreaFilled(false);
         BotonMostrar.setFocusPainted(false);
         BotonMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonMostrarActionPerformed(evt);
             }
         });
-        add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 760, 60, -1));
+        add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 750, 40, 40));
 
         jPasswordField1.setBackground(new java.awt.Color(184, 221, 140));
         jPasswordField1.setBorder(null);
