@@ -70,17 +70,24 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jPasswordField1.setBorder(null);
         add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 690, 170, 20));
 
-        jButton1.setText("VER");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1570, 690, 60, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1590, 680, 40, -1));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonIniciarSesion.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setFocusable(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

@@ -55,6 +55,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         BotonMostrar.setBorder(null);
         BotonMostrar.setBorderPainted(false);
         BotonMostrar.setContentAreaFilled(false);
+        BotonMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonMostrar.setFocusPainted(false);
         BotonMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
