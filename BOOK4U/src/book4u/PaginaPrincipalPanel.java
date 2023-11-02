@@ -106,6 +106,10 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
 
     private void jBotonLesMevesReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonLesMevesReservesActionPerformed
         // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaMevesReservesPanel ());
+        marco.setVisible(true);
     }//GEN-LAST:event_jBotonLesMevesReservesActionPerformed
 
     private void jBotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuarioActionPerformed

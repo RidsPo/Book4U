@@ -11,12 +11,12 @@ import javax.swing.SwingUtilities;
  *
  * @author Usuario
  */
-public class PaginaReservaPanel extends javax.swing.JPanel {
+public class PaginaMevesReservesPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form PaginaReservaPanel
      */
-    public PaginaReservaPanel() {
+    public PaginaMevesReservesPanel() {
         initComponents();
     }
 
@@ -29,30 +29,28 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotonMisReservas = new javax.swing.JButton();
+        BotonNuevaReserva = new javax.swing.JButton();
         BotonPaginaPrincipal = new javax.swing.JButton();
         BotonHistorial = new javax.swing.JButton();
         BotonMonedero = new javax.swing.JButton();
         BotonUsuario = new javax.swing.JButton();
-        BotonCrearReserva = new javax.swing.JButton();
-        BotonCrearReserva1 = new javax.swing.JButton();
-        BotonCrearReserva2 = new javax.swing.JButton();
+        BotonModificarReserva = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BotonMisReservas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        BotonMisReservas.setBorder(null);
-        BotonMisReservas.setBorderPainted(false);
-        BotonMisReservas.setContentAreaFilled(false);
-        BotonMisReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonMisReservas.setFocusable(false);
-        BotonMisReservas.addActionListener(new java.awt.event.ActionListener() {
+        BotonNuevaReserva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        BotonNuevaReserva.setBorder(null);
+        BotonNuevaReserva.setBorderPainted(false);
+        BotonNuevaReserva.setContentAreaFilled(false);
+        BotonNuevaReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonNuevaReserva.setFocusable(false);
+        BotonNuevaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonMisReservasActionPerformed(evt);
+                BotonNuevaReservaActionPerformed(evt);
             }
         });
-        add(BotonMisReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 290, 100));
+        add(BotonNuevaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 220, 100));
 
         BotonPaginaPrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         BotonPaginaPrincipal.setBorder(null);
@@ -66,7 +64,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
                 BotonPaginaPrincipalActionPerformed(evt);
             }
         });
-        add(BotonPaginaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 40, 240, 100));
+        add(BotonPaginaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, 240, 90));
 
         BotonHistorial.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         BotonHistorial.setBorder(null);
@@ -79,7 +77,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
                 BotonHistorialActionPerformed(evt);
             }
         });
-        add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 40, 220, 100));
+        add(BotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 220, 100));
 
         BotonMonedero.setBorder(null);
         BotonMonedero.setBorderPainted(false);
@@ -101,50 +99,29 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         });
         add(BotonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 30, 110, 110));
 
-        BotonCrearReserva.setBorder(null);
-        BotonCrearReserva.setBorderPainted(false);
-        BotonCrearReserva.setContentAreaFilled(false);
-        BotonCrearReserva.setFocusable(false);
-        BotonCrearReserva.addActionListener(new java.awt.event.ActionListener() {
+        BotonModificarReserva.setBorder(null);
+        BotonModificarReserva.setBorderPainted(false);
+        BotonModificarReserva.setContentAreaFilled(false);
+        BotonModificarReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonModificarReserva.setFocusable(false);
+        BotonModificarReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCrearReservaActionPerformed(evt);
+                BotonModificarReservaActionPerformed(evt);
             }
         });
-        add(BotonCrearReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 410, 220, 100));
+        add(BotonModificarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 410, 260, 90));
 
-        BotonCrearReserva1.setBorder(null);
-        BotonCrearReserva1.setBorderPainted(false);
-        BotonCrearReserva1.setContentAreaFilled(false);
-        BotonCrearReserva1.setFocusable(false);
-        BotonCrearReserva1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCrearReserva1ActionPerformed(evt);
-            }
-        });
-        add(BotonCrearReserva1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 640, 220, 100));
-
-        BotonCrearReserva2.setBorder(null);
-        BotonCrearReserva2.setBorderPainted(false);
-        BotonCrearReserva2.setContentAreaFilled(false);
-        BotonCrearReserva2.setFocusable(false);
-        BotonCrearReserva2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCrearReserva2ActionPerformed(evt);
-            }
-        });
-        add(BotonCrearReserva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 870, 220, 100));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaReserva.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaMevesReserves.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonMisReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMisReservasActionPerformed
+    private void BotonNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNuevaReservaActionPerformed
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
-        marco.add(new PaginaMevesReservesPanel ());
+        marco.add(new PaginaReservaPanel ());
         marco.setVisible(true);
-    }//GEN-LAST:event_BotonMisReservasActionPerformed
+    }//GEN-LAST:event_BotonNuevaReservaActionPerformed
 
     private void BotonPaginaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPaginaPrincipalActionPerformed
         // TODO add your handling code here:
@@ -166,26 +143,16 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         marco.setVisible(true);
     }//GEN-LAST:event_BotonUsuarioActionPerformed
 
-    private void BotonCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReservaActionPerformed
+    private void BotonModificarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonCrearReservaActionPerformed
-
-    private void BotonCrearReserva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReserva1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonCrearReserva1ActionPerformed
-
-    private void BotonCrearReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReserva2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonCrearReserva2ActionPerformed
+    }//GEN-LAST:event_BotonModificarReservaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonCrearReserva;
-    private javax.swing.JButton BotonCrearReserva1;
-    private javax.swing.JButton BotonCrearReserva2;
     private javax.swing.JButton BotonHistorial;
-    private javax.swing.JButton BotonMisReservas;
+    private javax.swing.JButton BotonModificarReserva;
     private javax.swing.JButton BotonMonedero;
+    private javax.swing.JButton BotonNuevaReserva;
     private javax.swing.JButton BotonPaginaPrincipal;
     private javax.swing.JButton BotonUsuario;
     private javax.swing.JLabel Fondo;
