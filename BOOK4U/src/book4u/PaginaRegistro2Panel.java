@@ -4,6 +4,7 @@
  */
 package book4u;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -153,16 +154,24 @@ private boolean passwordVisible2 = false;
         marco.add(new PaginaRegistroPanel());
         marco.setVisible(true);
     }//GEN-LAST:event_jBotonVolverActionPerformed
+    // Declarar una variable para almacenar la ruta del archivo seleccionado
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        JFileChooser jf = new JFileChooser();
-        jf.setMultiSelectionEnabled(false);
-        if(jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION){
-            
-        }
+        
+       JFileChooser jf = new JFileChooser();
+    jf.setMultiSelectionEnabled(false);
+    if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        // Obtener el archivo seleccionado
+        File selectedFile = jf.getSelectedFile();
+
+        // Almacenar la ruta del archivo seleccionado en la variable
+        selectedFile.getAbsolutePath();
+
+        // Ahora puedes usar selectedImagePath para acceder a la ruta del archivo en otras partes de tu programa.
+    } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField2ActionPerformed
         // TODO add your handling code here:
         
