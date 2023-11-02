@@ -32,10 +32,10 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
 
         jBotonNovaReserva = new javax.swing.JButton();
         jBotonLesMevesReserves = new javax.swing.JButton();
-        jBotonHistorial = new javax.swing.JButton();
-        jFondo = new javax.swing.JLabel();
         jBotonHistorial1 = new javax.swing.JButton();
-        jBotonPerfil = new javax.swing.JButton();
+        jBotonMonedero = new javax.swing.JButton();
+        jBotonUsuario = new javax.swing.JButton();
+        jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,22 +64,6 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         });
         add(jBotonLesMevesReserves, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, 310, 110));
 
-        jBotonHistorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
-        jBotonHistorial.setBorder(null);
-        jBotonHistorial.setBorderPainted(false);
-        jBotonHistorial.setContentAreaFilled(false);
-        jBotonHistorial.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotonHistorial.setFocusPainted(false);
-        jBotonHistorial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonHistorialActionPerformed(evt);
-            }
-        });
-        add(jBotonHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 30, -1, -1));
-
-        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrincipal.png"))); // NOI18N
-        add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jBotonHistorial1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Historial_PaginaPrincipal.png"))); // NOI18N
         jBotonHistorial1.setBorder(null);
         jBotonHistorial1.setBorderPainted(false);
@@ -88,47 +72,57 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonHistorial1.setFocusPainted(false);
         add(jBotonHistorial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
-        jBotonPerfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Historial_PaginaPrincipal.png"))); // NOI18N
-        jBotonPerfil.setBorder(null);
-        jBotonPerfil.setBorderPainted(false);
-        jBotonPerfil.setContentAreaFilled(false);
-        jBotonPerfil.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotonPerfil.setFocusPainted(false);
-        jBotonPerfil.addActionListener(new java.awt.event.ActionListener() {
+        jBotonMonedero.setBorder(null);
+        jBotonMonedero.setBorderPainted(false);
+        jBotonMonedero.setContentAreaFilled(false);
+        jBotonMonedero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonMonedero.setFocusable(false);
+        add(jBotonMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 30, 210, 110));
+
+        jBotonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
+        jBotonUsuario.setBorder(null);
+        jBotonUsuario.setBorderPainted(false);
+        jBotonUsuario.setContentAreaFilled(false);
+        jBotonUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonUsuario.setFocusPainted(false);
+        jBotonUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotonPerfilActionPerformed(evt);
+                jBotonUsuarioActionPerformed(evt);
             }
         });
-        add(jBotonPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
+        add(jBotonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 30, -1, -1));
+
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrincipal.png"))); // NOI18N
+        add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBotonNovaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonNovaReservaActionPerformed
         // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaReservaPanel ());
+        marco.setVisible(true);
     }//GEN-LAST:event_jBotonNovaReservaActionPerformed
 
     private void jBotonLesMevesReservesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonLesMevesReservesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBotonLesMevesReservesActionPerformed
 
-    private void jBotonPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonPerfilActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBotonPerfilActionPerformed
-
-    private void jBotonHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonHistorialActionPerformed
+    private void jBotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuarioActionPerformed
        // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaPerfilUsuario ());
         marco.setVisible(true);
-    }//GEN-LAST:event_jBotonHistorialActionPerformed
+    }//GEN-LAST:event_jBotonUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBotonHistorial;
     private javax.swing.JButton jBotonHistorial1;
     private javax.swing.JButton jBotonLesMevesReserves;
+    private javax.swing.JButton jBotonMonedero;
     private javax.swing.JButton jBotonNovaReserva;
-    private javax.swing.JButton jBotonPerfil;
+    private javax.swing.JButton jBotonUsuario;
     private javax.swing.JLabel jFondo;
     // End of variables declaration//GEN-END:variables
 }
