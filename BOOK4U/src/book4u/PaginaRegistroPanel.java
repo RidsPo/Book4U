@@ -7,6 +7,7 @@ package book4u;
 import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -32,130 +33,144 @@ private boolean passwordVisible2 = false;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jBotoniniciarSession = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jIniciarSession = new javax.swing.JButton();
+        jRegistrar = new javax.swing.JButton();
+        jDNI = new javax.swing.JTextField();
+        jNom = new javax.swing.JTextField();
+        jDomicili = new javax.swing.JTextField();
+        jNom_Usuari = new javax.swing.JTextField();
+        jCorreu = new javax.swing.JTextField();
+        jCognoms = new javax.swing.JTextField();
+        jSelectFoto = new javax.swing.JButton();
+        jContra = new javax.swing.JPasswordField();
+        jRepetirContra = new javax.swing.JPasswordField();
+        jMostrarEsconder1 = new javax.swing.JButton();
+        jMostrarEsconder2 = new javax.swing.JButton();
         jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBotoniniciarSession.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_IniciarSesion_PaginaRegistro1.png"))); // NOI18N
-        jBotoniniciarSession.setBorder(null);
-        jBotoniniciarSession.setBorderPainted(false);
-        jBotoniniciarSession.setContentAreaFilled(false);
-        jBotoniniciarSession.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotoniniciarSession.addActionListener(new java.awt.event.ActionListener() {
+        jIniciarSession.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_IniciarSesion_PaginaRegistro1.png"))); // NOI18N
+        jIniciarSession.setBorder(null);
+        jIniciarSession.setBorderPainted(false);
+        jIniciarSession.setContentAreaFilled(false);
+        jIniciarSession.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jIniciarSession.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBotoniniciarSessionActionPerformed(evt);
+                jIniciarSessionActionPerformed(evt);
             }
         });
-        add(jBotoniniciarSession, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 930, -1, -1));
+        add(jIniciarSession, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 930, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField1.setBorder(null);
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, 450, 30));
-
-        jTextField2.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField2.setBorder(null);
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 450, 30));
-
-        jTextField3.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField3.setBorder(null);
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 730, 450, 30));
-
-        jTextField4.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField4.setBorder(null);
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Registrar_PaginaRegistro2.png"))); // NOI18N
+        jRegistrar.setBorder(null);
+        jRegistrar.setBorderPainted(false);
+        jRegistrar.setContentAreaFilled(false);
+        jRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jRegistrar.setFocusable(false);
+        jRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jRegistrarActionPerformed(evt);
             }
         });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 850, 450, 30));
+        add(jRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 930, -1, -1));
 
-        jTextField5.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField5.setBorder(null);
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 470, 450, 30));
+        jDNI.setBackground(new java.awt.Color(184, 221, 140));
+        jDNI.setBorder(null);
+        add(jDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, 450, 30));
 
-        jTextField8.setBackground(new java.awt.Color(184, 221, 140));
-        jTextField8.setBorder(null);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        jNom.setBackground(new java.awt.Color(184, 221, 140));
+        jNom.setBorder(null);
+        add(jNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 450, 30));
+
+        jDomicili.setBackground(new java.awt.Color(184, 221, 140));
+        jDomicili.setBorder(null);
+        add(jDomicili, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 730, 450, 30));
+
+        jNom_Usuari.setBackground(new java.awt.Color(184, 221, 140));
+        jNom_Usuari.setBorder(null);
+        jNom_Usuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                jNom_UsuariActionPerformed(evt);
             }
         });
-        add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 450, 30));
+        add(jNom_Usuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 850, 450, 30));
 
-        jTextField9.setText("jTextField1");
-        add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 450, 30));
+        jCorreu.setBackground(new java.awt.Color(184, 221, 140));
+        jCorreu.setBorder(null);
+        add(jCorreu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 470, 450, 30));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Seleccionar imagen...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jCognoms.setBackground(new java.awt.Color(184, 221, 140));
+        jCognoms.setBorder(null);
+        jCognoms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jCognomsActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 830, 470, 60));
+        add(jCognoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 450, 30));
 
-        jPasswordField2.setBackground(new java.awt.Color(184, 221, 140));
-        jPasswordField2.setBorder(null);
-        jPasswordField2.setFocusable(false);
-        add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 590, 390, 40));
-
-        jPasswordField3.setBackground(new java.awt.Color(184, 221, 140));
-        jPasswordField3.setBorder(null);
-        jPasswordField3.addActionListener(new java.awt.event.ActionListener() {
+        jSelectFoto.setBackground(new java.awt.Color(204, 204, 204));
+        jSelectFoto.setText("Seleccionar imagen...");
+        jSelectFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField3ActionPerformed(evt);
+                jSelectFotoActionPerformed(evt);
             }
         });
-        add(jPasswordField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 730, 400, 30));
+        add(jSelectFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 830, 470, 60));
 
-        jButton2.setBackground(new java.awt.Color(184, 221, 140));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jContra.setBackground(new java.awt.Color(184, 221, 140));
+        jContra.setBorder(null);
+        jContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jContraActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 590, 50, 40));
+        add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 600, 400, 30));
 
-        jButton3.setBackground(new java.awt.Color(184, 221, 140));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jRepetirContra.setBackground(new java.awt.Color(184, 221, 140));
+        jRepetirContra.setBorder(null);
+        jRepetirContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jRepetirContraActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 720, 50, 40));
+        add(jRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 730, 400, 30));
+
+        jMostrarEsconder1.setBackground(new java.awt.Color(184, 221, 140));
+        jMostrarEsconder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jMostrarEsconder1.setBorder(null);
+        jMostrarEsconder1.setBorderPainted(false);
+        jMostrarEsconder1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMostrarEsconder1ActionPerformed(evt);
+            }
+        });
+        add(jMostrarEsconder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 590, 50, 40));
+
+        jMostrarEsconder2.setBackground(new java.awt.Color(184, 221, 140));
+        jMostrarEsconder2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jMostrarEsconder2.setBorder(null);
+        jMostrarEsconder2.setBorderPainted(false);
+        jMostrarEsconder2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMostrarEsconder2ActionPerformed(evt);
+            }
+        });
+        add(jMostrarEsconder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 720, 50, 40));
 
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaRegistroFinal.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBotoniniciarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotoniniciarSessionActionPerformed
+    private void jIniciarSessionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIniciarSessionActionPerformed
          // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaIniciarSesionPanel());
         marco.setVisible(true);    
-    }//GEN-LAST:event_jBotoniniciarSessionActionPerformed
+    }//GEN-LAST:event_jIniciarSessionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jSelectFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSelectFotoActionPerformed
 
         JFileChooser jf = new JFileChooser();
         jf.setMultiSelectionEnabled(false);
@@ -168,56 +183,90 @@ private boolean passwordVisible2 = false;
 
             // Ahora puedes usar selectedImagePath para acceder a la ruta del archivo en otras partes de tu programa.
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jSelectFotoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jMostrarEsconder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMostrarEsconder1ActionPerformed
         // TODO add your handling code here:
                  passwordVisible2 = !passwordVisible2;
     if (passwordVisible2) {
-        jPasswordField2.setEchoChar((char) 0); // Mostrar la contraseña
+        jRepetirContra.setEchoChar((char) 0); // Mostrar la contraseña
     } else {
-        jPasswordField2.setEchoChar('*'); // Ocultar la contraseña con asteriscos
+        jRepetirContra.setEchoChar('*'); // Ocultar la contraseña con asteriscos
     }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jMostrarEsconder1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jMostrarEsconder2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMostrarEsconder2ActionPerformed
         // TODO add your handling code here:
                  passwordVisible1 = !passwordVisible1;
     if (passwordVisible1) {
-        jPasswordField3.setEchoChar((char) 0); // Mostrar la contraseña
+        jContra.setEchoChar((char) 0); // Mostrar la contraseña
     } else {
-        jPasswordField3.setEchoChar('*'); // Ocultar la contraseña con asteriscos
+        jContra.setEchoChar('*'); // Ocultar la contraseña con asteriscos
     }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jMostrarEsconder2ActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void jCognomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCognomsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_jCognomsActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jNom_UsuariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNom_UsuariActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jNom_UsuariActionPerformed
 
-    private void jPasswordField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField3ActionPerformed
+    private void jContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContraActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jPasswordField3ActionPerformed
+    }//GEN-LAST:event_jContraActionPerformed
+
+    private void jRepetirContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRepetirContraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRepetirContraActionPerformed
+
+    private void jRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrarActionPerformed
+        // TODO add your handling code here:
+                JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        
+         if (jNom.getText().isEmpty() && jCognoms.getText().isEmpty() && jDNI.getText().isEmpty() && jDomicili.getText().isEmpty() && jNom_Usuari.getText().isEmpty() && jCorreu.getText().isEmpty() && jContra.getText().isEmpty() && jContra.getText().isEmpty() && jSelectFoto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jRegistrar, "Todos los campos estan vacios!");
+        } else if (jNom.getText().isEmpty() || jCognoms.getText().isEmpty() || jDNI.getText().isEmpty() || jDomicili.getText().isEmpty() || jNom_Usuari.getText().isEmpty() || jCorreu.getText().isEmpty() || jContra.getText().isEmpty() || jContra.getText().isEmpty() || jSelectFoto.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jRegistrar, "Rellena los campos vacios!");
+        } else {
+            String nom = jNom.getText();
+            String cognoms = jCognoms.getText();
+            String DNI = jDNI.getText();
+            String domicili = jDomicili.getText();
+            String nomUsuari = jNom_Usuari.getText();
+            String correu = jCorreu.getText();
+            String contra = jContra.getText();
+            String foto = jSelectFoto.getText();
+
+            Usuarios informacion = new Usuarios(foto, nomUsuari, cognoms, DNI, domicili, correu, contra, nom);
+
+            informacion.makeConnection();
+            informacion.insertWithStatement();
+
+            marco.remove(this);
+            marco.add(new PaginaIniciarSesionPanel());
+            marco.setVisible(true);
+
+        }  
+    }//GEN-LAST:event_jRegistrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBotoniniciarSession;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField jCognoms;
+    private javax.swing.JPasswordField jContra;
+    private javax.swing.JTextField jCorreu;
+    private javax.swing.JTextField jDNI;
+    private javax.swing.JTextField jDomicili;
     private javax.swing.JLabel jFondo;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton jIniciarSession;
+    private javax.swing.JButton jMostrarEsconder1;
+    private javax.swing.JButton jMostrarEsconder2;
+    private javax.swing.JTextField jNom;
+    private javax.swing.JTextField jNom_Usuari;
+    private javax.swing.JButton jRegistrar;
+    private javax.swing.JPasswordField jRepetirContra;
+    private javax.swing.JButton jSelectFoto;
     // End of variables declaration//GEN-END:variables
 }
