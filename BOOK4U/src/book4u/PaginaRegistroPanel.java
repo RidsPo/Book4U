@@ -111,8 +111,6 @@ private boolean passwordVisible2 = false;
 
         jSelectFoto.setBackground(new java.awt.Color(204, 204, 204));
         jSelectFoto.setText("Seleccionar imagen...");
-        jSelectFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jSelectFoto.setFocusable(false);
         jSelectFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSelectFotoActionPerformed(evt);
@@ -142,8 +140,6 @@ private boolean passwordVisible2 = false;
         jMostrarEsconder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
         jMostrarEsconder1.setBorder(null);
         jMostrarEsconder1.setBorderPainted(false);
-        jMostrarEsconder1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMostrarEsconder1.setFocusable(false);
         jMostrarEsconder1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMostrarEsconder1ActionPerformed(evt);
@@ -155,8 +151,6 @@ private boolean passwordVisible2 = false;
         jMostrarEsconder2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
         jMostrarEsconder2.setBorder(null);
         jMostrarEsconder2.setBorderPainted(false);
-        jMostrarEsconder2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMostrarEsconder2.setFocusable(false);
         jMostrarEsconder2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMostrarEsconder2ActionPerformed(evt);
@@ -230,7 +224,7 @@ private boolean passwordVisible2 = false;
 
     private void jRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRegistrarActionPerformed
         // TODO add your handling code here:
-                JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         
          if (jNom.getText().isEmpty() && jCognoms.getText().isEmpty() && jDNI.getText().isEmpty() && jDomicili.getText().isEmpty() && jNom_Usuari.getText().isEmpty() && jCorreu.getText().isEmpty() && jContra.getText().isEmpty() && jContra.getText().isEmpty() && jSelectFoto.getText().isEmpty()) {
             JOptionPane.showMessageDialog(jRegistrar, "Todos los campos estan vacios!");
