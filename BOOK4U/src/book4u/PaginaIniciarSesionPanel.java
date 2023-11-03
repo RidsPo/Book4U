@@ -5,6 +5,7 @@
 package book4u;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -50,19 +51,19 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         });
         add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
 
-        BotonMostrar.setBackground(new java.awt.Color(184, 221, 140));
         BotonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
         BotonMostrar.setBorder(null);
         BotonMostrar.setBorderPainted(false);
         BotonMostrar.setContentAreaFilled(false);
         BotonMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonMostrar.setFocusPainted(false);
+        BotonMostrar.setFocusable(false);
         BotonMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonMostrarActionPerformed(evt);
             }
         });
-        add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 750, 40, 40));
+        add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 750, 60, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(184, 221, 140));
         jPasswordField1.setBorder(null);
@@ -114,9 +115,27 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
     private void jBotonInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonInicioSesionActionPerformed
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new PaginaPrincipalPanel ());
-        marco.setVisible(true);
+        
+        if (jNombreUsuario.getText().isEmpty() && jPasswordField1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jBotonInicioSesion, "Introduce un nombre y una contraseña.");
+        } else if (jNombreUsuario.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jBotonInicioSesion, "Introduce un nombre de usuario.");
+        } else if (jPasswordField1.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(jBotonInicioSesion, "Introduce una contraseña.");
+        } else {
+            String nombreUsuario = jNombreUsuario.getText();
+            String contraseñaUsuario = jPasswordField1.getText();
+
+            Usuarios informacion = new Usuarios(nombreUsuario, contraseñaUsuario);
+
+            informacion.makeConnection();
+
+            informacion.selectWithStatement();
+
+            marco.remove(this);
+            marco.add(new PaginaPrincipalPanel ());
+            marco.setVisible(true);
+        }
     }//GEN-LAST:event_jBotonInicioSesionActionPerformed
 
     private void jNombreUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNombreUsuarioActionPerformed

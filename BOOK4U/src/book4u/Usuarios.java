@@ -9,9 +9,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -39,6 +36,7 @@ public class Usuarios {
     
     public Usuarios(String foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
         super();
+        
         this.foto = foto;
         this.nom_usuari = nom_usuari;
         this.cognom = cognom;
@@ -47,6 +45,15 @@ public class Usuarios {
         this.correu = correu;
         this.contra = contra;
         this.nom = nom;
+
+        connection = makeConnection();
+    }
+    
+    public Usuarios(String nom_usuari, String contra) {
+        super();
+        
+        this.nom_usuari = nom_usuari;
+        this.contra = contra;
 
         connection = makeConnection();
     }
@@ -121,6 +128,7 @@ public class Usuarios {
     }
 
     public static Connection makeConnection() {
+        
         System.out.println("Connecting database...");
 
         Connection con = null;
@@ -172,33 +180,33 @@ public class Usuarios {
     }
     
     
-    /*public String selectWithStatement() {
+    public String selectWithStatement() {
 
-        Usuarios1 infousuario = new Usuarios1();
+        Usuarios nombreusuario = new Usuarios(foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
 
         String nombre = null;
-        String sql = "SELECT * FROM USUARIO WHERE nom_usuari = '" + getNom_usuari() + "' AND contra = '" + getContraseña() + "'";
+        String sql = "SELECT * FROM USUARIO WHERE nom_usuari = '" + getNom_Usuari() + "' AND contra = '" + getContra() + "'";
 
         System.out.println(sql);
 
         try {
             Statement statement = (Statement) connection.createStatement();
 
-            System.out.println(getNom_Usuari());
+            System.out.println(getNom_Usuari() +" "+ getContra());
 
             ResultSet rs = statement.executeQuery(sql);
 
             while (rs.next()) {
                 nombreusuario.foto = rs.getString("foto");
                 nombreusuario.nom_usuari = rs.getString("nom_usuari");
-                infousuario.cognom = rs.getString("cognom");
-                infousuario.DNI = rs.getString("DNI");
-                infousuario.domicili = rs.getString("domicili");
+                nombreusuario.cognom = rs.getString("cognom");
+                nombreusuario.DNI = rs.getString("DNI");
+                nombreusuario.domicili = rs.getString("domicili");
                 nombreusuario.correu = rs.getString("correu");
                 nombreusuario.contra = rs.getString("contra");
-                infousuario.nom = rs.getString("nom");
+                nombreusuario.nom = rs.getString("nom");
 
-                System.out.println(nombreusuario.foto + "," + nombreusuario.nom_usuari + "," + infousuario.cognom + "," + infousuario.DNI + "," + infousuario.domicili + "," + nombreusuario.correu + "," + nombreusuario.contra + "," + infousuario.nom);
+                System.out.println(nombreusuario.foto + "," + nombreusuario.nom_usuari + "," + nombreusuario.cognom + "," + nombreusuario.DNI + "," + nombreusuario.domicili + "," + nombreusuario.correu + "," + nombreusuario.contra + "," + nombreusuario.nom);
             }
             statement.close();
 
@@ -207,25 +215,5 @@ public class Usuarios {
 
         }
         return nombre;
-    }*/
-            /*JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);*/
-        
-       /* if (jNom.getText().isEmpty() && jCognoms.getText().isEmpty() && jDNI.getText().isEmpty() && jDomicili.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(jBotonSiguiente, "Todos los campos estan vacios!");
-        } else if (jNom.getText().isEmpty() || jCognoms.getText().isEmpty() || jDNI.getText().isEmpty() || jDomicili.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(jBotonSiguiente, "Rellena los campos vacios!");
-        } else {
-            String nom = jNom.getText();
-            String cognom = jCognoms.getText();
-            String DNI = jDNI.getText();
-            String domicili = jDomicili.getText();
-
-            Usuarios1 informacion = new Usuarios1(nom, cognom, DNI, domicili);
-
-            informacion.makeConnection();
-            informacion.insertWithStatement();
-
-            marco.remove(this);
-            marco.add(new PaginaRegistro2Panel());
-            marco.setVisible(true);*/
+    }
 }
