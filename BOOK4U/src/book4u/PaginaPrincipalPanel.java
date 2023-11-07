@@ -4,6 +4,12 @@
  */
 package book4u;
 
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -114,6 +120,32 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
 
     private void jBotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuarioActionPerformed
        // TODO add your handling code here:
+       JDialog dialog = new JDialog();
+        dialog.setLayout(new FlowLayout());
+        dialog.setLocation(1720, 70); // Establece la ubicación en las coordenadas (300, 200)
+ // Crea los dos botones para el diálogo
+        JButton button1 = new JButton("Ver Perfil");
+        JButton button2 = new JButton("Cerrar Sesión");
+     // Agrega los botones al diálogo
+        dialog.add(button1);
+        dialog.add(button2);
+   // Establece el tamaño del diálogo
+        dialog.setSize(200, 110);
+           // Haz que el diálogo sea modal para bloquear la ventana principal
+        dialog.setModal(true);
+           // Define un manejador de eventos para los botones del diálogo
+        button1.addActionListener((ActionEvent e) -> {
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaPerfilUsuario ());
+        marco.setVisible(true);
+        dialog.dispose(); // Cierra el diálogo
+       });  button2.addActionListener((ActionEvent e) -> {
+            // Código para el botón 2
+            dialog.dispose(); // Cierra el diálogo
+       });
+         // Haz visible el diálogo
+        dialog.setVisible(true);
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaPerfilUsuario ());
