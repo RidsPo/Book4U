@@ -4,6 +4,12 @@
  */
 package book4u;
 
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -30,12 +36,32 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jBotonNovaReserva = new javax.swing.JButton();
         jBotonLesMevesReserves = new javax.swing.JButton();
         jBotonHistorial1 = new javax.swing.JButton();
         jBotonMonedero = new javax.swing.JButton();
         jBotonUsuario = new javax.swing.JButton();
         jFondo = new javax.swing.JLabel();
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonVerPerfil.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, 270, 90));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonCerrarSesion.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 290, -1));
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,12 +139,52 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jBotonLesMevesReservesActionPerformed
 
     private void jBotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuarioActionPerformed
-       // TODO add your handling code here:
+       /*// TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaPerfilUsuario ());
+        marco.setVisible(true);*/
+        JDialog dialog = new JDialog();
+        dialog.setLayout(new FlowLayout());
+        dialog.setLocation(1720, 70); // Establece la ubicación en las coordenadas (300, 200)
+
+
+        // Crea los dos botones para el diálogo
+        JButton button1 = new JButton("Ver Perfil");
+        JButton button2 = new JButton("Cerrar Sesión");
+
+        // Agrega los botones al diálogo
+        dialog.add(button1);
+        dialog.add(button2);
+
+        // Establece el tamaño del diálogo
+        dialog.setSize(200, 110);
+
+        // Haz que el diálogo sea modal para bloquear la ventana principal
+        dialog.setModal(true);
+
+        // Define un manejador de eventos para los botones del diálogo
+        button1.addActionListener((ActionEvent e) -> {
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
         marco.add(new PaginaPerfilUsuario ());
         marco.setVisible(true);
+        dialog.dispose(); // Cierra el diálogo
+       });
+
+        button2.addActionListener((ActionEvent e) -> {
+            // Código para el botón 2
+            dialog.dispose(); // Cierra el diálogo
+       });
+
+        // Haz visible el diálogo
+        dialog.setVisible(true);
+
     }//GEN-LAST:event_jBotonUsuarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -127,6 +193,9 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     private javax.swing.JButton jBotonMonedero;
     private javax.swing.JButton jBotonNovaReserva;
     private javax.swing.JButton jBotonUsuario;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jFondo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
