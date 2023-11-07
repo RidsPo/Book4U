@@ -38,11 +38,10 @@ public class PaginaInicial extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Regristro_PaginaInicial.png"))); // NOI18N
-        jBotonRegistro.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jBotonRegistro.setBorder(null);
         jBotonRegistro.setBorderPainted(false);
         jBotonRegistro.setContentAreaFilled(false);
         jBotonRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotonRegistro.setFocusPainted(false);
         jBotonRegistro.setFocusable(false);
         jBotonRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,9 +55,7 @@ public class PaginaInicial extends javax.swing.JPanel {
         jBotonIniciarSesion.setBorderPainted(false);
         jBotonIniciarSesion.setContentAreaFilled(false);
         jBotonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotonIniciarSesion.setDefaultCapable(false);
-        jBotonIniciarSesion.setDoubleBuffered(true);
-        jBotonIniciarSesion.setFocusPainted(false);
+        jBotonIniciarSesion.setFocusable(false);
         jBotonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBotonIniciarSesionActionPerformed(evt);
