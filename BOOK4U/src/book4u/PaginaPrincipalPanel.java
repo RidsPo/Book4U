@@ -76,6 +76,11 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonHistorial1.setContentAreaFilled(false);
         jBotonHistorial1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBotonHistorial1.setFocusPainted(false);
+        jBotonHistorial1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonHistorial1ActionPerformed(evt);
+            }
+        });
         add(jBotonHistorial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
         jBotonMonedero.setBorder(null);
@@ -151,6 +156,14 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         marco.add(new PaginaPerfilUsuario ());
         marco.setVisible(true);
     }//GEN-LAST:event_jBotonUsuarioActionPerformed
+
+    private void jBotonHistorial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonHistorial1ActionPerformed
+        // TODO add your handling code here:
+        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+        marco.remove(this);
+        marco.add(new PaginaHistorial ());
+        marco.setVisible(true);
+    }//GEN-LAST:event_jBotonHistorial1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
