@@ -126,35 +126,46 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     private void jBotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonUsuarioActionPerformed
        // TODO add your handling code here:
        JDialog dialog = new JDialog();
-        dialog.setLayout(new FlowLayout());
-        dialog.setLocation(1720, 70); // Establece la ubicación en las coordenadas (300, 200)
- // Crea los dos botones para el diálogo
-        JButton button1 = new JButton("Ver Perfil");
-        JButton button2 = new JButton("Cerrar Sesión");
-     // Agrega los botones al diálogo
-        dialog.add(button1);
-        dialog.add(button2);
-   // Establece el tamaño del diálogo
-        dialog.setSize(200, 110);
-           // Haz que el diálogo sea modal para bloquear la ventana principal
-        dialog.setModal(true);
-           // Define un manejador de eventos para los botones del diálogo
-        button1.addActionListener((ActionEvent e) -> {
+    dialog.setLayout(new FlowLayout());
+    dialog.setLocation(1720, 70);
+
+    JButton button1 = new JButton("Ver Perfil");
+    JButton button2 = new JButton("Cerrar Sesión");
+
+    dialog.add(button1);
+    dialog.add(button2);
+
+    dialog.setSize(200, 110);
+    dialog.setModal(true);
+
+    button1.addActionListener((ActionEvent e) -> {
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         marco.remove(this);
-        marco.add(new PaginaPerfilUsuario ());
+        marco.add(new PaginaPerfilUsuario());
         marco.setVisible(true);
-        dialog.dispose(); // Cierra el diálogo
-       });  button2.addActionListener((ActionEvent e) -> {
-            // Código para el botón 2
-            dialog.dispose(); // Cierra el diálogo
-       });
-         // Haz visible el diálogo
-        dialog.setVisible(true);
+        dialog.dispose();
+    });
+
+    button2.addActionListener((ActionEvent e) -> {
+        // Código para cerrar la sesión (puede incluir limpiar datos de usuario, etc.)
+
+        // Cerrar el diálogo
+        dialog.dispose();
+
+        // Obtener el marco principal
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+        // Remover la actual interfaz de usuario
         marco.remove(this);
-        marco.add(new PaginaPerfilUsuario ());
+
+        // Agregar la página de inicio de sesión (reemplaza 'PaginaInicioSesion' con tu clase real)
+        marco.add(new PaginaInicial());
+
+        // Hacer visible el cambio
         marco.setVisible(true);
+    });
+
+    dialog.setVisible(true);
     }//GEN-LAST:event_jBotonUsuarioActionPerformed
 
     private void jBotonHistorial1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonHistorial1ActionPerformed

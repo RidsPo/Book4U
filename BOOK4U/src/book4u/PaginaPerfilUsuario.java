@@ -4,7 +4,12 @@
  */
 package book4u;
 
+import java.awt.GridLayout;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 /**
@@ -38,6 +43,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jPasswordField1 = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,6 +101,17 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         });
         add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 800, 340, 100));
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonComprarCreditos.png"))); // NOI18N
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 800, 390, 100));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paginaPerfilUsuario.png"))); // NOI18N
         jLabel1.setFocusable(false);
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -119,10 +136,52 @@ private boolean passwordVisible1 = false;
         marco.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+                // TODO add your handling code here:
+    JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+    // Panel personalizado con JTextField y JLabel organizados en un GridLayout
+    JPanel panel = new JPanel(new GridLayout(3, 1));
+    JLabel mensajeLabel = new JLabel("Quants crèdits vols comprar?");
+    JTextField cantidadField = new JTextField(10);
+
+    panel.add(mensajeLabel);
+    panel.add(cantidadField);
+
+    // Botones personalizados
+    Object[] opciones = {"Comprar", "Cancelar"};
+
+    // Muestra el cuadro de diálogo personalizado
+    int result = JOptionPane.showOptionDialog(
+            marco,
+            panel,
+            "Compra de Crèdits",
+            JOptionPane.OK_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE,
+            null,
+            opciones,
+            opciones[0]);
+
+    // Verifica la opción seleccionada por el usuario
+    if (result == JOptionPane.OK_OPTION) {
+        // Aquí puedes manejar la cantidad de créditos ingresada (puedes convertirla a int si es necesario)
+        // Puedes mostrar un mensaje de confirmación o realizar otras acciones según tu lógica
+        String cantidadCreditos = cantidadField.getText();
+        System.out.println("Comprar " + cantidadCreditos + " créditos");
+
+        // Continúa con la lógica de cambio de panel si es necesario
+        marco.remove(this);
+        marco.add(new PaginaPrincipalPanel());
+        marco.setVisible(true);
+    }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField2;
