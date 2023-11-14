@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
+import javax.swing.text.JTextComponent;
 
 public class PaginaPerfilUsuario extends javax.swing.JPanel {
 
@@ -16,7 +17,10 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
     protected String domicili;
     protected String correu;
     protected String contra;
-    protected String nom;   
+    protected String nom;  
+    
+    protected int creditos;
+    protected int dinero;
     
     private boolean passwordVisible1 = false;
     
@@ -55,7 +59,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         
         ImageIcon finalIcon = new ImageIcon(resizedImage);
         
-        jLabel2.setIcon(finalIcon);
+        jFotoUsuario.setIcon(finalIcon);
        
        mostrarInformacionUsuario();      
     }
@@ -172,7 +176,9 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jEditarImagen = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jBotonEditar = new javax.swing.JButton();
+        jBotonGuardar = new javax.swing.JButton();
+        jFotoUsuario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,8 +268,34 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jEditarImagen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(jEditarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FotoUsuario.png"))); // NOI18N
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
+        jBotonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonEditar.png"))); // NOI18N
+        jBotonEditar.setBorder(null);
+        jBotonEditar.setBorderPainted(false);
+        jBotonEditar.setContentAreaFilled(false);
+        jBotonEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonEditar.setFocusable(false);
+        jBotonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonEditarActionPerformed(evt);
+            }
+        });
+        add(jBotonEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 800, -1, -1));
+
+        jBotonGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonGuardar.png"))); // NOI18N
+        jBotonGuardar.setBorder(null);
+        jBotonGuardar.setBorderPainted(false);
+        jBotonGuardar.setContentAreaFilled(false);
+        jBotonGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonGuardar.setFocusable(false);
+        jBotonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBotonGuardarActionPerformed(evt);
+            }
+        });
+        add(jBotonGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 800, -1, -1));
+
+        jFotoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/FotoUsuario.png"))); // NOI18N
+        add(jFotoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPerfilUsuario.png"))); // NOI18N
         jLabel1.setFocusable(false);
@@ -299,7 +331,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
 
     // Panel personalizado con JTextField y JLabel organizados en un GridLayout
     JPanel panel = new JPanel(new GridLayout(3, 1));
-    JLabel mensajeLabel = new JLabel("Quants crèdits vols comprar?");
+    JLabel mensajeLabel = new JLabel("Quants crèdits vols comprar? (1 crèdit = 10 €)");
     JTextField cantidadField = new JTextField(10);
 
     panel.add(mensajeLabel);
@@ -324,7 +356,18 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         // Aquí puedes manejar la cantidad de créditos ingresada (puedes convertirla a int si es necesario)
         // Puedes mostrar un mensaje de confirmación o realizar otras acciones según tu lógica
         String cantidadCreditos = cantidadField.getText();
-        System.out.println("Comprar " + cantidadCreditos + " créditos");
+        
+        creditos = Integer.parseInt(cantidadCreditos);
+        
+        dinero = creditos * 10;
+        
+        System.out.println("Comprar " + creditos + " creditos");
+        System.out.println("Gastar " + dinero + " euros");
+        
+        Credits credits = new Credits(id, creditos, dinero);
+        
+        credits.makeConnection();
+        credits.insertOrUpdateWithStatement();
 
         // Continúa con la lógica de cambio de panel si es necesario
         marco.remove(this);
@@ -333,8 +376,31 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jBotonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEditarActionPerformed
+        // TODO add your handling code here:
+        Component[] components = this.getComponents();
+        for (Component comp : components) {
+            if (comp instanceof JTextField || comp instanceof JPasswordField) {
+                ((JTextComponent) comp).setFocusable(true);
+            }
+        }
+    
+        // Reemplazar jBotonEditar con jBotonGuardar
+        jBotonEditar.setVisible(false);
+        jBotonGuardar.setVisible(true);
+    }//GEN-LAST:event_jBotonEditarActionPerformed
+
+    private void jBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonGuardarActionPerformed
+        // TODO add your handling code here:
+        
+        jBotonEditar.setVisible(true);
+        jBotonGuardar.setVisible(false);
+    }//GEN-LAST:event_jBotonGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBotonEditar;
+    private javax.swing.JButton jBotonGuardar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -344,8 +410,8 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
     private javax.swing.JTextField jDNI;
     private javax.swing.JTextField jDomicili;
     private javax.swing.JButton jEditarImagen;
+    private javax.swing.JLabel jFotoUsuario;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jNom;
     private javax.swing.JTextField jNomUsuari;
     // End of variables declaration//GEN-END:variables

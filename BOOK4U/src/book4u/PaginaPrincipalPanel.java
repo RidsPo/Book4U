@@ -26,7 +26,9 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     protected String domicili;
     protected String correu;
     protected String contra;
-    protected String nom;     
+    protected String nom;    
+    
+    protected String credits;
     
     public PaginaPrincipalPanel(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
        super();
@@ -64,6 +66,14 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonUsuario.setIcon(finalIcon);
         
         System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);        
+    
+        Credits creditos =  new Credits(id);
+        
+        creditos.selectWithStatement();
+        
+        this.credits = String.valueOf(creditos.credits);
+        
+        jTextField1.setText(credits);
     }
 
     /*getters*/
@@ -148,8 +158,8 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         jBotonNovaReserva = new javax.swing.JButton();
         jBotonLesMevesReserves = new javax.swing.JButton();
         jBotonHistorial1 = new javax.swing.JButton();
-        jBotonMonedero = new javax.swing.JButton();
         jBotonUsuario = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jFondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -192,13 +202,6 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         });
         add(jBotonHistorial1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 40, -1, -1));
 
-        jBotonMonedero.setBorder(null);
-        jBotonMonedero.setBorderPainted(false);
-        jBotonMonedero.setContentAreaFilled(false);
-        jBotonMonedero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBotonMonedero.setFocusable(false);
-        add(jBotonMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 30, 210, 110));
-
         jBotonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
         jBotonUsuario.setBorder(null);
         jBotonUsuario.setBorderPainted(false);
@@ -212,7 +215,15 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         });
         add(jBotonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1760, 30, -1, -1));
 
-        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrincipal.png"))); // NOI18N
+        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setText("adsdaadad");
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jTextField1.setFocusable(false);
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 50, 180, 80));
+
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaPrinicpal.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -297,9 +308,9 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonHistorial1;
     private javax.swing.JButton jBotonLesMevesReserves;
-    private javax.swing.JButton jBotonMonedero;
     private javax.swing.JButton jBotonNovaReserva;
     private javax.swing.JButton jBotonUsuario;
     private javax.swing.JLabel jFondo;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -40,6 +40,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
        this.nom = nom;        
         
         initComponents();
+        
         ImageIcon originalIcon = new ImageIcon(foto);
         
         Image originalImage = originalIcon.getImage();
@@ -126,6 +127,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         add(BotonMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 30, 210, 110));
 
         BotonUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        BotonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
         BotonUsuario.setBorder(null);
         BotonUsuario.setBorderPainted(false);
         BotonUsuario.setContentAreaFilled(false);
@@ -150,7 +152,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         });
         add(BotonModificarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 410, 260, 90));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaMevesReserves.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_Pagina_MevesReserves.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,21 +196,32 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         dialog.setModal(true);
            // Define un manejador de eventos para los botones del diálogo
         button1.addActionListener((ActionEvent e) -> {
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
-        marco.setVisible(true);
-        dialog.dispose(); // Cierra el diálogo
-       });  button2.addActionListener((ActionEvent e) -> {
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+            
+            marco.remove(this);
+            marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
+            marco.setVisible(true);
+            
+            dialog.dispose(); // Cierra el diálogo
+       
+        });  button2.addActionListener((ActionEvent e) -> {
             // Código para el botón 2
             dialog.dispose(); // Cierra el diálogo
+            
+            // Obtener el marco principal
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            // Remover la actual interfaz de usuario
+            marco.remove(this);
+
+            // Agregar la página de inicio de sesión (reemplaza 'PaginaInicioSesion' con tu clase real)
+            marco.add(new PaginaInicial());
+
+            // Hacer visible el cambio
+            marco.setVisible(true);
        });
          // Haz visible el diálogo
         dialog.setVisible(true);
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
-        marco.setVisible(true);
     }//GEN-LAST:event_BotonUsuarioActionPerformed
 
     private void BotonModificarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarReservaActionPerformed

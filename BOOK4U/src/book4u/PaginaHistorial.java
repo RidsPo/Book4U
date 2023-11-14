@@ -1,10 +1,14 @@
 package book4u;
 
+import java.awt.FlowLayout;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -36,6 +40,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
        this.nom = nom;        
         
         initComponents();
+        
         ImageIcon originalIcon = new ImageIcon(foto);
         
         Image originalImage = originalIcon.getImage();
@@ -107,10 +112,20 @@ public class PaginaHistorial extends javax.swing.JPanel {
         });
         add(BotonNovaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 220, 90));
 
-        BotonUsuario.setText("jButton1");
-        add(BotonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1290, 70, -1, -1));
+        BotonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
+        BotonUsuario.setBorder(null);
+        BotonUsuario.setBorderPainted(false);
+        BotonUsuario.setContentAreaFilled(false);
+        BotonUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BotonUsuario.setFocusable(false);
+        BotonUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonUsuarioActionPerformed(evt);
+            }
+        });
+        add(BotonUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1750, 30, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaHistorial.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_Pagina_Historial.png"))); // NOI18N
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -134,6 +149,56 @@ public class PaginaHistorial extends javax.swing.JPanel {
         marco.add(new PaginaReservaPanel (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
         marco.setVisible(true);
     }//GEN-LAST:event_BotonNovaReservaActionPerformed
+
+    private void BotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuarioActionPerformed
+        // TODO add your handling code here:
+        JDialog dialog = new JDialog();
+        dialog.setLayout(new FlowLayout());
+        dialog.setLocation(1720, 70);
+
+        JButton button1 = new JButton("Ver Perfil");
+        JButton button2 = new JButton("Cerrar Sesión");
+
+        dialog.add(button1);
+        dialog.add(button2);
+
+        dialog.setSize(200, 110);
+        dialog.setModal(true);
+
+        button1.addActionListener((ActionEvent e) -> {
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+            
+            this.infousuario = new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
+
+            System.out.println("Mensaje de la pagina principal al perfil: " + infousuario.id + "," + infousuario.foto + "," + infousuario.nom_usuari + "," + infousuario.cognom + "," + infousuario.DNI + "," + infousuario.domicili + "," + infousuario.correu + "," + infousuario.contra + "," + infousuario.nom);
+            
+            marco.remove(this);
+            marco.add(new PaginaPerfilUsuario(id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
+            marco.setVisible(true);
+            dialog.dispose();
+        });
+
+        button2.addActionListener((ActionEvent e) -> {
+            // Código para cerrar la sesión (puede incluir limpiar datos de usuario, etc.)
+
+            // Cerrar el diálogo
+            dialog.dispose();
+
+            // Obtener el marco principal
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            // Remover la actual interfaz de usuario
+            marco.remove(this);
+
+            // Agregar la página de inicio de sesión (reemplaza 'PaginaInicioSesion' con tu clase real)
+            marco.add(new PaginaInicial());
+
+            // Hacer visible el cambio
+            marco.setVisible(true);
+        });
+
+        dialog.setVisible(true);
+    }//GEN-LAST:event_BotonUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -40,6 +40,8 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        this.contra = contra;
        this.nom = nom;
                
+        initComponents();
+       
         ImageIcon originalIcon = new ImageIcon(foto);
         
         Image originalImage = originalIcon.getImage();
@@ -61,8 +63,6 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonUsuario.setIcon(finalIcon);
         
         System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);                
-        
-        initComponents();
     }
     
     /*getters*/
@@ -204,6 +204,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         add(BotonMonedero, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 30, 210, 110));
 
         BotonUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        BotonUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/perfil.png"))); // NOI18N
         BotonUsuario.setBorder(null);
         BotonUsuario.setBorderPainted(false);
         BotonUsuario.setContentAreaFilled(false);
@@ -249,7 +250,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         });
         add(BotonCrearReserva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 870, 220, 100));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaReserva.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaReserva.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -281,33 +282,47 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        JDialog dialog = new JDialog();
         dialog.setLayout(new FlowLayout());
         dialog.setLocation(1720, 70); // Establece la ubicación en las coordenadas (300, 200)
- // Crea los dos botones para el diálogo
+       
+        // Crea los dos botones para el diálogo
         JButton button1 = new JButton("Ver Perfil");
         JButton button2 = new JButton("Cerrar Sesión");
-     // Agrega los botones al diálogo
+        
+        // Agrega los botones al diálogo
         dialog.add(button1);
         dialog.add(button2);
-   // Establece el tamaño del diálogo
+        
+        // Establece el tamaño del diálogo
         dialog.setSize(200, 110);
            // Haz que el diálogo sea modal para bloquear la ventana principal
         dialog.setModal(true);
            // Define un manejador de eventos para los botones del diálogo
         button1.addActionListener((ActionEvent e) -> {
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
-        marco.setVisible(true);
-        dialog.dispose(); // Cierra el diálogo
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+            
+            this.infousuario = new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
+            
+            marco.remove(this);
+            marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
+            marco.setVisible(true);
+            dialog.dispose(); // Cierra el diálogo
        });  button2.addActionListener((ActionEvent e) -> {
             // Código para el botón 2
             dialog.dispose(); // Cierra el diálogo
+            
+            // Obtener el marco principal
+            JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
+
+            // Remover la actual interfaz de usuario
+            marco.remove(this);
+
+            // Agregar la página de inicio de sesión (reemplaza 'PaginaInicioSesion' con tu clase real)
+            marco.add(new PaginaInicial());
+
+            // Hacer visible el cambio
+            marco.setVisible(true);
        });
          // Haz visible el diálogo
         dialog.setVisible(true);
-        JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
-        marco.remove(this);
-        marco.add(new PaginaPerfilUsuario (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
-        marco.setVisible(true);
     }//GEN-LAST:event_BotonUsuarioActionPerformed
 
     private void BotonCrearReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReservaActionPerformed
