@@ -109,10 +109,18 @@ public void insertOrUpdateWithStatement() {
         ResultSet resultSet = selectStatement.executeQuery();
 
         if (resultSet.next()) {
-            // Si existe, realizar una actualización (UPDATE)
+            // Si existe, obtener la cantidad actual de créditos y dinero
+            int currentCredits = resultSet.getInt("monedavirtual");
+            int currentDiners = resultSet.getInt("dinero");
+
+            // Sumar la nueva cantidad a la cantidad actual
+            int newCredits = currentCredits + credits;
+            int newDiners = currentDiners + diners;
+
+            // Realizar la actualización (UPDATE) con la nueva cantidad
             PreparedStatement updateStatement = connection.prepareStatement(updateSql);
-            updateStatement.setInt(1, credits);
-            updateStatement.setInt(2, diners);
+            updateStatement.setInt(1, newCredits);
+            updateStatement.setInt(2, newDiners);
             updateStatement.setInt(3, id_usuari);
             updateStatement.executeUpdate();
             updateStatement.close();
@@ -134,6 +142,7 @@ public void insertOrUpdateWithStatement() {
         System.out.println("Error during insert or update: " + e);
     }
 }
+
 
     
     public void selectWithStatement() {
