@@ -352,6 +352,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
             opciones[0]);
 
     // Verifica la opción seleccionada por el usuario
+    // Verifica la opción seleccionada por el usuario
     if (result == JOptionPane.OK_OPTION) {
         // Aquí puedes manejar la cantidad de créditos ingresada (puedes convertirla a int si es necesario)
         // Puedes mostrar un mensaje de confirmación o realizar otras acciones según tu lógica
@@ -369,10 +370,13 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         credits.makeConnection();
         credits.insertOrUpdateWithStatement();
 
+        // Muestra un mensaje de compra realizada correctamente
+        JOptionPane.showMessageDialog(marco, "Compra realizada correctamente");
         // Continúa con la lógica de cambio de panel si es necesario
         marco.remove(this);
         marco.add(new PaginaPrincipalPanel(id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
         marco.setVisible(true);
+
     }
     }//GEN-LAST:event_jButton3ActionPerformed
 
