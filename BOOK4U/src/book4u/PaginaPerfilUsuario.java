@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.text.JTextComponent;
 
@@ -11,6 +15,9 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
 
     protected int id;
     protected byte[] foto;
+    
+    private byte[] imageData;
+
     protected String nom_usuari;
     protected String cognom;
     protected String DNI;
@@ -172,9 +179,10 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jDomicili = new javax.swing.JTextField();
         jNomUsuari = new javax.swing.JTextField();
         jContra = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBotonContra = new javax.swing.JButton();
+        jBotonPaginaPrincipal = new javax.swing.JButton();
+        jBotonCancelar = new javax.swing.JButton();
+        jComprarCreditos = new javax.swing.JButton();
         jEditarImagen = new javax.swing.JButton();
         jBotonEditar = new javax.swing.JButton();
         jBotonGuardar = new javax.swing.JButton();
@@ -225,47 +233,66 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         jContra.setFocusable(false);
         add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 690, 170, 20));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBotonContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
+        jBotonContra.setBorder(null);
+        jBotonContra.setBorderPainted(false);
+        jBotonContra.setContentAreaFilled(false);
+        jBotonContra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonContra.setFocusable(false);
+        jBotonContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBotonContraActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1590, 680, 40, -1));
+        add(jBotonContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1590, 680, 40, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonIniciarSesion.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.setFocusable(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jBotonPaginaPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonIniciarSesion.png"))); // NOI18N
+        jBotonPaginaPrincipal.setBorder(null);
+        jBotonPaginaPrincipal.setContentAreaFilled(false);
+        jBotonPaginaPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonPaginaPrincipal.setFocusable(false);
+        jBotonPaginaPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jBotonPaginaPrincipalActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 800, 340, 100));
+        add(jBotonPaginaPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 800, 340, 100));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonComprarCreditos.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jBotonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonCancelar.png"))); // NOI18N
+        jBotonCancelar.setBorder(null);
+        jBotonCancelar.setBorderPainted(false);
+        jBotonCancelar.setContentAreaFilled(false);
+        jBotonCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBotonCancelar.setFocusable(false);
+        jBotonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jBotonCancelarActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 800, 390, 100));
+        add(jBotonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1360, 800, -1, -1));
+
+        jComprarCreditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonComprarCreditos.png"))); // NOI18N
+        jComprarCreditos.setBorder(null);
+        jComprarCreditos.setBorderPainted(false);
+        jComprarCreditos.setContentAreaFilled(false);
+        jComprarCreditos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jComprarCreditos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComprarCreditosActionPerformed(evt);
+            }
+        });
+        add(jComprarCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 800, 390, 100));
 
         jEditarImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Foto_Editar_Imagen.png"))); // NOI18N
         jEditarImagen.setBorder(null);
         jEditarImagen.setBorderPainted(false);
         jEditarImagen.setContentAreaFilled(false);
         jEditarImagen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jEditarImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEditarImagenActionPerformed(evt);
+            }
+        });
         add(jEditarImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 540, -1, -1));
 
         jBotonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/BotonEditar.png"))); // NOI18N
@@ -304,7 +331,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jBotonContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonContraActionPerformed
         // TODO add your handling code here:
         passwordVisible1 = !passwordVisible1;
         
@@ -313,18 +340,18 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         } else {
             jContra.setEchoChar('*'); // Ocultar la contraseña con asteriscos
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jBotonContraActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jBotonPaginaPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonPaginaPrincipalActionPerformed
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         
         marco.remove(this);
         marco.add(new PaginaPrincipalPanel (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
         marco.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jBotonPaginaPrincipalActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jComprarCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComprarCreditosActionPerformed
         // TODO add your handling code here:
                 // TODO add your handling code here:
     JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
@@ -352,7 +379,6 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
             opciones[0]);
 
     // Verifica la opción seleccionada por el usuario
-    // Verifica la opción seleccionada por el usuario
     if (result == JOptionPane.OK_OPTION) {
         // Aquí puedes manejar la cantidad de créditos ingresada (puedes convertirla a int si es necesario)
         // Puedes mostrar un mensaje de confirmación o realizar otras acciones según tu lógica
@@ -361,7 +387,7 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         creditos = Integer.parseInt(cantidadCreditos);
         
         dinero = creditos * 10;
-        
+                
         System.out.println("Comprar " + creditos + " creditos");
         System.out.println("Gastar " + dinero + " euros");
         
@@ -369,16 +395,16 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         
         credits.makeConnection();
         credits.insertOrUpdateWithStatement();
-
+        
         // Muestra un mensaje de compra realizada correctamente
         JOptionPane.showMessageDialog(marco, "Compra realizada correctamente");
+        
         // Continúa con la lógica de cambio de panel si es necesario
         marco.remove(this);
         marco.add(new PaginaPrincipalPanel(id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
         marco.setVisible(true);
-
     }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jComprarCreditosActionPerformed
 
     private void jBotonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonEditarActionPerformed
         // TODO add your handling code here:
@@ -392,23 +418,134 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         // Reemplazar jBotonEditar con jBotonGuardar
         jBotonEditar.setVisible(false);
         jBotonGuardar.setVisible(true);
+        jBotonPaginaPrincipal.setVisible(false);
+        jBotonGuardar.setVisible(true);
     }//GEN-LAST:event_jBotonEditarActionPerformed
 
     private void jBotonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonGuardarActionPerformed
         // TODO add your handling code here:
+        Component[] components = this.getComponents();
+        for (Component comp : components) {
+            if (comp instanceof JTextField || comp instanceof JPasswordField) {
+                ((JTextComponent) comp).setFocusable(false);
+            }
+        }
+        
+        nom = jNom.getText();
+        cognom = jCognom.getText();
+        DNI = jDNI.getText();
+        domicili = jDomicili.getText();
+        nom_usuari = jNomUsuari.getText();
+        correu = jCorreu.getText();
+        contra = jContra.getText();
+        
+        Usuarios editarinfo = new Usuarios(id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
+        
+        editarinfo.makeConnection();
+        editarinfo.updateWithStatement();
         
         jBotonEditar.setVisible(true);
         jBotonGuardar.setVisible(false);
+        jBotonPaginaPrincipal.setVisible(true);
+        jBotonGuardar.setVisible(false);
     }//GEN-LAST:event_jBotonGuardarActionPerformed
 
+    private void jBotonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonCancelarActionPerformed
+        // TODO add your handling code here:
+        
+        Component[] components = this.getComponents();
+        for (Component comp : components) {
+            if (comp instanceof JTextField || comp instanceof JPasswordField) {
+                ((JTextComponent) comp).setFocusable(false);
+            }
+        }
+        
+        jBotonEditar.setVisible(true);
+        jBotonGuardar.setVisible(false);
+        jBotonPaginaPrincipal.setVisible(true);
+        jBotonGuardar.setVisible(false);
+    }//GEN-LAST:event_jBotonCancelarActionPerformed
+
+    private void jEditarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEditarImagenActionPerformed
+        // TODO add your handling code here:
+        
+        JFileChooser jf = new JFileChooser();
+        jf.setMultiSelectionEnabled(false);
+        
+        if (jf.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            // Obtener el archivo seleccionado
+            File selectedFile = jf.getSelectedFile();
+
+            // Almacenar la ruta del archivo seleccionado en la variable
+            imageData = getBytesFromFile(selectedFile);
+           
+            System.out.println("Tamaño de la imagen en bytes: " + imageData.length);
+        }
+        
+        Usuarios imagenUsuario = new Usuarios(id, imageData);
+        
+        imagenUsuario.makeConnection();
+        imagenUsuario.updateImageWithStatement();
+        
+        actualizarInterfazGrafica();
+    }//GEN-LAST:event_jEditarImagenActionPerformed
+
+    private byte[] getBytesFromFile(File file) {
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            
+            byte[] buf = new byte[1024];
+        
+            int bytesRead;
+            while ((bytesRead = fis.read(buf)) != -1) {
+                bos.write(buf, 0, bytesRead);
+            }
+
+            fis.close();
+            return bos.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }  
+    
+    public void actualizarInterfazGrafica() {   
+        
+        Usuarios nuevaFoto = new Usuarios(nom_usuari, contra);
+        
+        nuevaFoto.selectWithStatement();
+        
+        ImageIcon nuevaImagen = new ImageIcon(nuevaFoto.foto);
+
+        Image originalImage = nuevaImagen.getImage();
+        
+        Image resizedImage = originalImage.getScaledInstance(384, 384, Image.SCALE_SMOOTH);
+
+        BufferedImage roundedImage = new BufferedImage(384, 384, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = roundedImage.createGraphics();
+
+        g2d.setClip(new Ellipse2D.Float(0, 0, 384, 384));
+
+        g2d.drawImage(resizedImage, 0, 0, null);
+
+        g2d.dispose();
+        
+        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        
+        jFotoUsuario.setIcon(finalIcon);
+        
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBotonCancelar;
+    private javax.swing.JButton jBotonContra;
     private javax.swing.JButton jBotonEditar;
     private javax.swing.JButton jBotonGuardar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jBotonPaginaPrincipal;
     private javax.swing.JTextField jCognom;
+    private javax.swing.JButton jComprarCreditos;
     private javax.swing.JPasswordField jContra;
     private javax.swing.JTextField jCorreu;
     private javax.swing.JTextField jDNI;

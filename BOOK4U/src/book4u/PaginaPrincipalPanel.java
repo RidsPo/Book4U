@@ -74,6 +74,8 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         this.credits = String.valueOf(creditos.credits);
         
         jTextField1.setText(credits);
+        
+        actualizarInterfazGrafica();
     }
 
     /*getters*/
@@ -303,8 +305,34 @@ public class PaginaPrincipalPanel extends javax.swing.JPanel {
         marco.add(new PaginaHistorial (id, foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom));
         marco.setVisible(true);
     }//GEN-LAST:event_jBotonHistorial1ActionPerformed
+    
+    public void actualizarInterfazGrafica() {   
+        
+        Usuarios nuevaFoto = new Usuarios(nom_usuari, contra);
+        
+        nuevaFoto.selectWithStatement();
+        
+        ImageIcon nuevaImagen = new ImageIcon(nuevaFoto.foto);
 
+        Image originalImage = nuevaImagen.getImage();
+        
+        Image resizedImage = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
 
+        BufferedImage roundedImage = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = roundedImage.createGraphics();
+
+        g2d.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+
+        g2d.drawImage(resizedImage, 0, 0, null);
+
+        g2d.dispose();
+        
+        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        
+        jBotonUsuario.setIcon(finalIcon);     
+}
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBotonHistorial1;
     private javax.swing.JButton jBotonLesMevesReserves;

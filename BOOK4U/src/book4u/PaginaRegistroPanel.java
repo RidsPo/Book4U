@@ -136,7 +136,7 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
                 jMostrarEsconder1ActionPerformed(evt);
             }
         });
-        add(jMostrarEsconder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 590, 50, 40));
+        add(jMostrarEsconder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 720, 50, 40));
 
         jMostrarEsconder2.setBackground(new java.awt.Color(184, 221, 140));
         jMostrarEsconder2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
@@ -147,7 +147,7 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
                 jMostrarEsconder2ActionPerformed(evt);
             }
         });
-        add(jMostrarEsconder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 720, 50, 40));
+        add(jMostrarEsconder2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1470, 590, 50, 40));
 
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaRegistroFinal.png"))); // NOI18N
         add(jFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -241,9 +241,9 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         JFrame marco = (JFrame) SwingUtilities.getWindowAncestor(this);
         
-        if (jNom.getText().isEmpty() && jCognoms.getText().isEmpty() && jDNI.getText().isEmpty() && jDomicili.getText().isEmpty() && jNom_Usuari.getText().isEmpty() && jCorreu.getText().isEmpty() && jContra.getText().isEmpty() && jContra.getText().isEmpty() && imageData != null) {
+        if (jNom.getText().isEmpty() && jCognoms.getText().isEmpty() && jDNI.getText().isEmpty() && jDomicili.getText().isEmpty() && jNom_Usuari.getText().isEmpty() && jCorreu.getText().isEmpty() && jContra.getText().isEmpty() && jContra.getText().isEmpty() && imageData == null) {
             JOptionPane.showMessageDialog(jRegistrar, "Todos los campos estan vacios!");
-        } else if (jNom.getText().isEmpty() || jCognoms.getText().isEmpty() || jDNI.getText().isEmpty() || jDomicili.getText().isEmpty() || jNom_Usuari.getText().isEmpty() || jCorreu.getText().isEmpty() || jContra.getText().isEmpty() || jContra.getText().isEmpty() || imageData != null) {
+        } else if (jNom.getText().isEmpty() || jCognoms.getText().isEmpty() || jDNI.getText().isEmpty() || jDomicili.getText().isEmpty() || jNom_Usuari.getText().isEmpty() || jCorreu.getText().isEmpty() || jContra.getText().isEmpty() || jContra.getText().isEmpty() || imageData == null) {
             JOptionPane.showMessageDialog(jRegistrar, "Rellena los campos vacios!");
         } else {
             String nom = jNom.getText();
@@ -255,7 +255,7 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
             String contra = jContra.getText();
 
             if(imageData != null){
-               
+                
                 Usuarios informacion = new Usuarios(imageData, nomUsuari, cognoms, DNI, domicili, correu, contra, nom);
 
                 informacion.makeConnection();

@@ -24,6 +24,8 @@ public class Usuarios {
 
     static Connection connection = null;
     
+    /*Contructor para el insert*/
+    
     public Usuarios(byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
         super();
         
@@ -39,11 +41,46 @@ public class Usuarios {
         connection = makeConnection();
     }
     
+    /**/
+    
+    /*Contructor para iniciar sesion*/
+    
     public Usuarios(String nom_usuari, String contra) {
         super();
         
         this.nom_usuari = nom_usuari;
         this.contra = contra;
+
+        connection = makeConnection();
+    }
+    
+    /**/
+    
+    /*Contructor para hacer el update de los jTextField y jPasswordFields*/   
+    public Usuarios(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
+        super();
+        
+        this.id = id;
+        this.foto = foto;
+        this.nom_usuari = nom_usuari;
+        this.cognom = cognom;
+        this.DNI = DNI;
+        this.domicili = domicili;
+        this.correu = correu;
+        this.contra = contra;
+        this.nom = nom;
+
+        connection = makeConnection();
+    }
+    
+    /**/
+    
+    
+    public Usuarios(int id, byte[] foto) {
+        super();
+        
+        this.id = id;
+        this.foto = foto;
 
         connection = makeConnection();
     }
@@ -188,7 +225,8 @@ public class Usuarios {
     
     
     public void selectWithStatement() {
-    String sql = "SELECT * FROM USUARIO WHERE nom_usuari = ? AND contra = ?";
+    
+        String sql = "SELECT * FROM USUARIO WHERE nom_usuari = ? AND contra = ?";
 
     try {
         // Crear una consulta preparada con placeholders (?)
@@ -223,4 +261,54 @@ public class Usuarios {
         System.out.println("Error during select: " + e);
     }
   }
+    
+    
+public void updateWithStatement() {
+    try {
+        // Crear una consulta preparada con placeholders (?)
+        String sql = "UPDATE USUARIO SET nom_usuari = ?, cognom = ?, DNI = ?, domicili = ?, correu = ?, contra = ?, nom = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        // Establecer los valores de los parámetros
+        preparedStatement.setString(1, nom_usuari);
+        preparedStatement.setString(2, cognom);
+        preparedStatement.setString(3, DNI);
+        preparedStatement.setString(4, domicili);
+        preparedStatement.setString(5, correu);
+        preparedStatement.setString(6, contra);
+        preparedStatement.setString(7, nom);
+        preparedStatement.setInt(8, id); // Se asume que id es el identificador único del usuario
+
+        // Ejecutar la consulta preparada
+        preparedStatement.executeUpdate();
+
+        // Cerrar la consulta preparada
+        preparedStatement.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error during update: " + e);
+    }
+}
+
+public void updateImageWithStatement() {
+    try {
+        // Crear una consulta preparada con placeholders (?)
+        String sql = "UPDATE USUARIO SET foto = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        // Establecer los valores de los parámetros
+        preparedStatement.setBytes(1, foto);
+        preparedStatement.setInt(2, id);
+
+        // Ejecutar la consulta preparada
+        preparedStatement.executeUpdate();
+
+        // Cerrar la consulta preparada
+        preparedStatement.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error during update: " + e);
+    }
+}
+
 }

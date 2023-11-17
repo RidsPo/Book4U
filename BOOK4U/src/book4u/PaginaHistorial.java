@@ -61,7 +61,9 @@ public class PaginaHistorial extends javax.swing.JPanel {
         
         BotonUsuario.setIcon(finalIcon);
         
-        System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);                
+        System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);   
+        
+        actualizarInterfazGrafica();
     }
 
     @SuppressWarnings("unchecked")
@@ -200,7 +202,33 @@ public class PaginaHistorial extends javax.swing.JPanel {
         dialog.setVisible(true);
     }//GEN-LAST:event_BotonUsuarioActionPerformed
 
+    public void actualizarInterfazGrafica() {   
+        
+        Usuarios nuevaFoto = new Usuarios(nom_usuari, contra);
+        
+        nuevaFoto.selectWithStatement();
+        
+        ImageIcon nuevaImagen = new ImageIcon(nuevaFoto.foto);
 
+        Image originalImage = nuevaImagen.getImage();
+        
+        Image resizedImage = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
+
+        BufferedImage roundedImage = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = roundedImage.createGraphics();
+
+        g2d.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+
+        g2d.drawImage(resizedImage, 0, 0, null);
+
+        g2d.dispose();
+        
+        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        
+        BotonUsuario.setIcon(finalIcon);     
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonNovaReserva;
     private javax.swing.JButton BotonPaginaPrincipal;

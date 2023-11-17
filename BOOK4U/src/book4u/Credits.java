@@ -97,7 +97,7 @@ public class Credits {
     }    
     
     
-public void insertOrUpdateWithStatement() {
+   public void insertOrUpdateWithStatement() {
     String selectSql = "SELECT * FROM CREDITOS WHERE id_usuario = ?";
     String insertSql = "INSERT INTO CREDITOS (monedavirtual, dinero, id_usuario) VALUES (?, ?, ?)";
     String updateSql = "UPDATE CREDITOS SET monedavirtual = ?, dinero = ? WHERE id_usuario = ?";
@@ -143,9 +143,7 @@ public void insertOrUpdateWithStatement() {
     }
 }
 
-
-    
-    public void selectWithStatement() {
+   public void selectWithStatement() {
     String sql = "SELECT * FROM CREDITOS WHERE id_usuario = ?";
 
     try {

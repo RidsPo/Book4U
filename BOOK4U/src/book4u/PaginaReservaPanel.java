@@ -62,7 +62,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
         BotonUsuario.setIcon(finalIcon);
         
-        System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);                
+        System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);        
+
+        actualizarInterfazGrafica();
     }
     
     /*getters*/
@@ -336,8 +338,34 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private void BotonCrearReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReserva2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonCrearReserva2ActionPerformed
+    
+    public void actualizarInterfazGrafica() {   
+        
+        Usuarios nuevaFoto = new Usuarios(nom_usuari, contra);
+        
+        nuevaFoto.selectWithStatement();
+        
+        ImageIcon nuevaImagen = new ImageIcon(nuevaFoto.foto);
 
+        Image originalImage = nuevaImagen.getImage();
+        
+        Image resizedImage = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
 
+        BufferedImage roundedImage = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = roundedImage.createGraphics();
+
+        g2d.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+
+        g2d.drawImage(resizedImage, 0, 0, null);
+
+        g2d.dispose();
+        
+        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        
+        BotonUsuario.setIcon(finalIcon);     
+}
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCrearReserva;
     private javax.swing.JButton BotonCrearReserva1;
