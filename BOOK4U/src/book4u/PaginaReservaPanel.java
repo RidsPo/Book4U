@@ -34,7 +34,14 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     protected String contra;
     protected String nom;   
     
-    
+        
+    protected int id_residencia;
+    protected byte[] foto_residencia;
+    protected String nombre_residencia;
+    protected String direccion_residencia;
+    protected int precio_residencia;
+    protected int ocupado_residencia;
+    protected String precioFinal;
     
     public PaginaReservaPanel(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
        super();
@@ -74,20 +81,10 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         System.out.println("Mensaje de la pagina principal: " + id + foto + nom_usuari + cognom + DNI + domicili + correu + contra + nom);        
 
         actualizarInterfazGrafica();
-    }
-    
-    protected int id_residencia;
-    protected byte[] foto_residencia;
-    protected String nombre_residencia;
-    protected String direccion_residencia;
-    protected int precio_residencia;
-    protected int ocupado_residencia;
-    
-    public PaginaReservaPanel() {
-       super();
         
-       Residencias residencias = new Residencias();
-       residencias.selectWithStatement();
+        Residencias residencias = new Residencias();
+        
+        residencias.selectWithStatement();
        
        this.id_residencia = residencias.id;
        this.foto_residencia = residencias.foto;
@@ -96,33 +93,30 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        this.precio_residencia = residencias.precio;
        this.ocupado_residencia = residencias.ocupado;
 
-        initComponents();
-       
-        ImageIcon originalIcon = new ImageIcon(foto_residencia);
+        ImageIcon originalIcon2 = new ImageIcon(foto_residencia);
         
-        Image originalImage = originalIcon.getImage();
+        Image originalImage2 = originalIcon.getImage();
         
-        Image resizedImage = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
+        Image resizedImage2 = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
 
-        BufferedImage roundedImage = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage roundedImage2 = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
 
-        Graphics2D g2d = roundedImage.createGraphics();
+        Graphics2D g2d2 = roundedImage2.createGraphics();
 
-        g2d.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+        g2d2.setClip(new Ellipse2D.Float(0, 0, 106, 106));
 
-        g2d.drawImage(resizedImage, 0, 0, null);
+        g2d2.drawImage(resizedImage2, 0, 0, null);
 
-        g2d.dispose();
+        g2d2.dispose();
         
-        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        ImageIcon finalIcon2 = new ImageIcon(resizedImage2);
         
         Foto.setIcon(finalIcon);
         
-        System.out.println("Mensaje de la pagina principal: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
+        System.out.println("Mensaje de la residencia: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
 
-        actualizarInterfazGrafica();
+        mostrarInformacionResidencia();
     }
-    
     
     /*getters*/
         public int getId() {
@@ -329,11 +323,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
             }
         });
         add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
-
-        Foto.setText("jLabel1");
         add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 366, 320, 180));
 
-        Info.setText("jTextField1");
+        Info.setText(nombre_residencia + direccion_residencia);
         Info.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InfoActionPerformed(evt);
@@ -341,7 +333,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         });
         add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
 
-        Precio.setText("jTextField2");
+        Precio.setText(precioFinal);
         add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaReserva.png"))); // NOI18N
@@ -470,7 +462,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
         // TODO add your handling code here:
         
-        String nombre = "Piso en Madrid";
+       /* String nombre = "Piso en Madrid";
         String direccion = "Calle Girona, 25, 1a";
         int precio = 20;
         int ocupado = 0;
@@ -479,7 +471,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        
        residencia.makeConnection();
        
-       residencia.insertWithStatement();
+       residencia.insertWithStatement();*/
     }//GEN-LAST:event_CrearActionPerformed
 
     private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
@@ -515,8 +507,8 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     
     private void mostrarInformacionResidencia(){
         Info.setText(nombre_residencia + direccion_residencia);
-        String precio = Integer.toString(precio_residencia);
-        Precio.setText(precio);
+        precioFinal = Integer.toString(precio_residencia);
+        Precio.setText(precioFinal);
     }
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
