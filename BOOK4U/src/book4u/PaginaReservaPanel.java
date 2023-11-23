@@ -34,6 +34,8 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     protected String contra;
     protected String nom;   
     
+    
+    
     public PaginaReservaPanel(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
        super();
         
@@ -73,6 +75,54 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
 
         actualizarInterfazGrafica();
     }
+    
+    protected int id_residencia;
+    protected byte[] foto_residencia;
+    protected String nombre_residencia;
+    protected String direccion_residencia;
+    protected int precio_residencia;
+    protected int ocupado_residencia;
+    
+    public PaginaReservaPanel() {
+       super();
+        
+       Residencias residencias = new Residencias();
+       residencias.selectWithStatement();
+       
+       this.id_residencia = residencias.id;
+       this.foto_residencia = residencias.foto;
+       this.nombre_residencia = residencias.nombre;
+       this.direccion_residencia = residencias.direccion;
+       this.precio_residencia = residencias.precio;
+       this.ocupado_residencia = residencias.ocupado;
+
+        initComponents();
+       
+        ImageIcon originalIcon = new ImageIcon(foto_residencia);
+        
+        Image originalImage = originalIcon.getImage();
+        
+        Image resizedImage = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
+
+        BufferedImage roundedImage = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = roundedImage.createGraphics();
+
+        g2d.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+
+        g2d.drawImage(resizedImage, 0, 0, null);
+
+        g2d.dispose();
+        
+        ImageIcon finalIcon = new ImageIcon(resizedImage);
+        
+        Foto.setIcon(finalIcon);
+        
+        System.out.println("Mensaje de la pagina principal: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
+
+        actualizarInterfazGrafica();
+    }
+    
     
     /*getters*/
         public int getId() {
@@ -163,6 +213,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonCrearReserva2 = new javax.swing.JButton();
         jSelectFoto = new javax.swing.JButton();
         Crear = new javax.swing.JButton();
+        Foto = new javax.swing.JLabel();
+        Info = new javax.swing.JTextField();
+        Precio = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -276,6 +329,20 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
             }
         });
         add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
+
+        Foto.setText("jLabel1");
+        add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 366, 320, 180));
+
+        Info.setText("jTextField1");
+        Info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoActionPerformed(evt);
+            }
+        });
+        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
+
+        Precio.setText("jTextField2");
+        add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaReserva.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -414,6 +481,10 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        
        residencia.insertWithStatement();
     }//GEN-LAST:event_CrearActionPerformed
+
+    private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InfoActionPerformed
     
     public void actualizarInterfazGrafica() {   
         
@@ -441,6 +512,12 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
         BotonUsuario.setIcon(finalIcon);     
     }
+    
+    private void mostrarInformacionResidencia(){
+        Info.setText(nombre_residencia + direccion_residencia);
+        String precio = Integer.toString(precio_residencia);
+        Precio.setText(precio);
+    }
         
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCrearReserva;
@@ -453,6 +530,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotonUsuario;
     private javax.swing.JButton Crear;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel Foto;
+    private javax.swing.JTextField Info;
+    private javax.swing.JTextField Precio;
     private javax.swing.JButton jSelectFoto;
     // End of variables declaration//GEN-END:variables
 }

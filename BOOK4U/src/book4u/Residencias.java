@@ -21,14 +21,9 @@ public class Residencias {
     
     static Connection connection = null;
     
-    public Residencias(byte[] foto, String nombre, String direccion, int precio, int ocupado) {
+    public Residencias() {
         super();
-        
-        this.foto = foto;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.precio = precio;
-        this.ocupado = ocupado;
+
         
         connection = makeConnection();
     }
@@ -156,4 +151,37 @@ public class Residencias {
             System.out.println("Error during insert: " + e);
         }
     }
+    
+    public void selectWithStatement() {
+    
+        String sql = "SELECT * FROM RESIDENCIAS";
+
+    try {
+        // Crear una consulta preparada con placeholders (?)
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+
+        // Ejecutar la consulta preparada
+        ResultSet rs = preparedStatement.executeQuery();
+
+        while (rs.next()) {
+            id = rs.getInt("id");
+            foto = rs.getBytes("foto"); // Cambié getString a getBytes para el campo de la foto
+            nombre = rs.getString("nombre");
+            direccion = rs.getString("direccion");
+            precio = rs.getInt("precio");
+            ocupado = rs.getInt("ocupado");
+           
+            System.out.println("Mensaje de la clase Residencias: " + id + "," + nombre + "," + direccion + "," + precio + "," + ocupado);
+        }
+
+        // Cerrar la consulta preparada y el resultado
+        preparedStatement.close();
+        rs.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error during select: " + e);
+    }
+  }
+    
 }
