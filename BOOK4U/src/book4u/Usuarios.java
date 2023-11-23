@@ -1,19 +1,25 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package book4u;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ *
+ * @author xavic
+ */
 public class Usuarios {
     private static final String USER = "23_24_DAM2_RIDSPO";
     private static final String PWD = "Rids_Po_0";
     private static final String URL = "jdbc:oracle:thin:@192.168.3.26:1521:xe";
     
-    protected int id;
-    protected byte[] foto;
+    protected String foto;
     protected String nom_usuari;
     protected String cognom;
     protected String DNI;
@@ -23,10 +29,12 @@ public class Usuarios {
     protected String nom;
 
     static Connection connection = null;
+
+    public Usuarios() {
+
+    }
     
-    /*Contructor para el insert*/
-    
-    public Usuarios(byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
+    public Usuarios(String foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
         super();
         
         this.foto = foto;
@@ -40,10 +48,6 @@ public class Usuarios {
 
         connection = makeConnection();
     }
-    
-    /**/
-    
-    /*Contructor para iniciar sesion*/
     
     public Usuarios(String nom_usuari, String contra) {
         super();
@@ -54,50 +58,11 @@ public class Usuarios {
         connection = makeConnection();
     }
     
-    /**/
-    
-    /*Contructor para hacer el update de los jTextField y jPasswordFields*/   
-    public Usuarios(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
-        super();
-        
-        this.id = id;
-        this.foto = foto;
-        this.nom_usuari = nom_usuari;
-        this.cognom = cognom;
-        this.DNI = DNI;
-        this.domicili = domicili;
-        this.correu = correu;
-        this.contra = contra;
-        this.nom = nom;
-
-        connection = makeConnection();
-    }
-    
-    /**/
-    
-    
-    public Usuarios(int id, byte[] foto) {
-        super();
-        
-        this.id = id;
-        this.foto = foto;
-
-        connection = makeConnection();
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }    
-    
-    public byte[] getFoto() {
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFoto(String foto) {
         this.foto = foto;
     }
     
@@ -197,118 +162,58 @@ public class Usuarios {
 
     public void insertWithStatement() {
 
+        Usuarios nombreusuario = new Usuarios(foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
+
+        System.out.println(nombreusuario);
+                 
+        String sql = "INSERT INTO USUARIO (foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom) VALUES ('" + nombreusuario.foto + "', '" + nombreusuario.nom_usuari + "', '" + nombreusuario.cognom + "', '" + nombreusuario.DNI + "', '" + nombreusuario.domicili + "', '" + nombreusuario.correu + "', '" + nombreusuario.contra + "', '" + nombreusuario.nom +"')";
+
         try {
-            // Crear una consulta preparada con placeholders (?)
-            String sql = "INSERT INTO USUARIO (nom_usuari, cognom, DNI, domicili, correu, contra, nom, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-            // Establecer los valores de los parámetros
-            preparedStatement.setString(1, nom_usuari);
-            preparedStatement.setString(2, cognom);
-            preparedStatement.setString(3, DNI);
-            preparedStatement.setString(4, domicili);
-            preparedStatement.setString(5, correu);
-            preparedStatement.setString(6, contra);
-            preparedStatement.setString(7, nom);
-            preparedStatement.setBytes(8, foto); // Suponiendo que "foto" es la variable de bytes de la imagen
-
-            // Ejecutar la consulta preparada
-            preparedStatement.executeUpdate();
-
-            // Cerrar la consulta preparada
-            preparedStatement.close();
+            Statement statement = (Statement) connection.createStatement();
+            statement.execute(sql);
+            statement.close();
 
         } catch (SQLException e) {
-            System.out.println("Error during insert: " + e);
+            System.out.println("The Insert had problems!! " + e);
+
         }
     }
     
     
-    public void selectWithStatement() {
-    
-        String sql = "SELECT * FROM USUARIO WHERE nom_usuari = ? AND contra = ?";
+    public String selectWithStatement() {
 
-    try {
-        // Crear una consulta preparada con placeholders (?)
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        Usuarios nombreusuario = new Usuarios(foto, nom_usuari, cognom, DNI, domicili, correu, contra, nom);
 
-        // Establecer los valores de los parámetros
-        preparedStatement.setString(1, nom_usuari);
-        preparedStatement.setString(2, contra);
+        String nombre = null;
+        String sql = "SELECT * FROM USUARIO WHERE nom_usuari = '" + getNom_Usuari() + "' AND contra = '" + getContra() + "'";
 
-        // Ejecutar la consulta preparada
-        ResultSet rs = preparedStatement.executeQuery();
+        System.out.println(sql);
 
-        while (rs.next()) {
-            id = rs.getInt("id");
-            foto = rs.getBytes("foto"); // Cambié getString a getBytes para el campo de la foto
-            nom_usuari = rs.getString("nom_usuari");
-            cognom = rs.getString("cognom");
-            DNI = rs.getString("DNI");
-            domicili = rs.getString("domicili");
-            correu = rs.getString("correu");
-            contra = rs.getString("contra");
-            nom = rs.getString("nom");
+        try {
+            Statement statement = (Statement) connection.createStatement();
 
-            System.out.println("Mensaje de la clase Usuarios: " + id + "," + nom_usuari + "," + cognom + "," + DNI + "," + domicili + "," + correu + "," + contra + "," + nom);
+            System.out.println(getNom_Usuari() +" "+ getContra());
+
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()) {
+                nombreusuario.foto = rs.getString("foto");
+                nombreusuario.nom_usuari = rs.getString("nom_usuari");
+                nombreusuario.cognom = rs.getString("cognom");
+                nombreusuario.DNI = rs.getString("DNI");
+                nombreusuario.domicili = rs.getString("domicili");
+                nombreusuario.correu = rs.getString("correu");
+                nombreusuario.contra = rs.getString("contra");
+                nombreusuario.nom = rs.getString("nom");
+
+                System.out.println(nombreusuario.foto + "," + nombreusuario.nom_usuari + "," + nombreusuario.cognom + "," + nombreusuario.DNI + "," + nombreusuario.domicili + "," + nombreusuario.correu + "," + nombreusuario.contra + "," + nombreusuario.nom);
+            }
+            statement.close();
+
+        } catch (SQLException e) {
+            System.out.println("The select had problems!! " + e);
+
         }
-
-        // Cerrar la consulta preparada y el resultado
-        preparedStatement.close();
-        rs.close();
-
-    } catch (SQLException e) {
-        System.out.println("Error during select: " + e);
+        return nombre;
     }
-  }
-    
-    
-public void updateWithStatement() {
-    try {
-        // Crear una consulta preparada con placeholders (?)
-        String sql = "UPDATE USUARIO SET nom_usuari = ?, cognom = ?, DNI = ?, domicili = ?, correu = ?, contra = ?, nom = ? WHERE id = ?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        // Establecer los valores de los parámetros
-        preparedStatement.setString(1, nom_usuari);
-        preparedStatement.setString(2, cognom);
-        preparedStatement.setString(3, DNI);
-        preparedStatement.setString(4, domicili);
-        preparedStatement.setString(5, correu);
-        preparedStatement.setString(6, contra);
-        preparedStatement.setString(7, nom);
-        preparedStatement.setInt(8, id); // Se asume que id es el identificador único del usuario
-
-        // Ejecutar la consulta preparada
-        preparedStatement.executeUpdate();
-
-        // Cerrar la consulta preparada
-        preparedStatement.close();
-
-    } catch (SQLException e) {
-        System.out.println("Error during update: " + e);
-    }
-}
-
-public void updateImageWithStatement() {
-    try {
-        // Crear una consulta preparada con placeholders (?)
-        String sql = "UPDATE USUARIO SET foto = ? WHERE id = ?";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        // Establecer los valores de los parámetros
-        preparedStatement.setBytes(1, foto);
-        preparedStatement.setInt(2, id);
-
-        // Ejecutar la consulta preparada
-        preparedStatement.executeUpdate();
-
-        // Cerrar la consulta preparada
-        preparedStatement.close();
-
-    } catch (SQLException e) {
-        System.out.println("Error during update: " + e);
-    }
-}
-
 }
