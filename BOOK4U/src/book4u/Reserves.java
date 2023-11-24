@@ -30,15 +30,15 @@ public class Reserves {
         connection = makeConnection();
     }
     
-    public Reserves( int id, byte[] foto, String nombre, String direccion, int precio, int ocupado) {
+    public Reserves(int id, int id_residencia, int id_usuari, int precio, Date data_inici, Date data_fi) {
         super();
         
         this.id = id;
-        this.foto = foto;
-        this.nombre = nombre;
-        this.direccion = direccion;
+        this.id_residencia = id_residencia;
+        this.id_usuari = id_usuari;
         this.precio = precio;
-        this.ocupado = ocupado;
+        this.data_inici = data_inici;
+        this.data_fi = data_fi;
         
         connection = makeConnection();
     }
@@ -51,28 +51,20 @@ public class Reserves {
         this.id = id;
     }    
     
-    public byte[] getFoto() {
-        return foto;
+    public int getIdResidencia() {
+        return id_residencia;
     }
 
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
+    public void setIdResidencia(int id_residencia) {
+        this.id_residencia = id_residencia;
     }
     
-    public String getNombre() {
-        return nombre;
+    public int getIdUsuari() {
+        return id_usuari;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setIdUsuari(int id_usuari) {
+        this.id_usuari = id_usuari;
     }
     
     public int getPrecio() {
@@ -83,18 +75,26 @@ public class Reserves {
         this.precio = precio;
     }
     
-    public int getOcupado() {
-        return precio;
+    public Date getDataInici() {
+        return data_inici;
     }
 
-    public void setOcupado(int ocupado) {
-        this.ocupado = ocupado;
+    public void setDataInici(Date DataInici) {
+        this.data_inici = data_inici;
     }
     
-    @Override
+    public Date getDataFi() {
+        return data_fi;
+    }
+
+    public void setDataFi(Date data_fi) {
+        this.data_fi = data_fi;
+    }
+ 
+    /*@Override
     public String toString() {
         return "la residencia se llama " + this.nombre + " y su direccion es " + this.direccion;
-    }
+    }*/
     
     public static Connection makeConnection() {
         
@@ -133,15 +133,18 @@ public class Reserves {
 
         try {
             // Crear una consulta preparada con placeholders (?)
-            String sql = "INSERT INTO RESIDENCIAS (nombre, direccion, precio, ocupado, foto) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO RESERVES (id_residensia, id_usuari, precio, fecha_inicio, fecha_final) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             // Establecer los valores de los parámetros
-            preparedStatement.setString(1, nombre);
-            preparedStatement.setString(2, direccion);
+            java.sql.Date sqlDataInici = new java.sql.Date(data_inici.getTime());
+            java.sql.Date sqlDataFi = new java.sql.Date(data_fi.getTime());
+
+            preparedStatement.setInt(1, id_residencia);
+            preparedStatement.setInt(2, id_usuari);
             preparedStatement.setInt(3, precio);
-            preparedStatement.setInt(4, ocupado);
-            preparedStatement.setBytes(5, foto);
+            preparedStatement.setDate(4, sqlDataInici); // Establecer la fecha de inicio como java.sql.Date
+            preparedStatement.setDate(5, sqlDataFi);
 
             // Ejecutar la consulta preparada
             preparedStatement.executeUpdate();
