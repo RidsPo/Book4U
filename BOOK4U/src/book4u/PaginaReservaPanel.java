@@ -351,7 +351,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
         add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaReserva.png"))); // NOI18N
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaReserva.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 

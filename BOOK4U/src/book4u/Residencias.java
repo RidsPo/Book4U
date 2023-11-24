@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Residencias {
     private static final String USER = "23_24_DAM2_RIDSPO";
@@ -28,7 +30,7 @@ public class Residencias {
         connection = makeConnection();
     }
     
-    public Residencias( int id, byte[] foto, String nombre, String direccion, int precio, int ocupado) {
+    public Residencias(byte[] foto, String nombre, String direccion, int precio, int ocupado) {
         super();
         
         this.id = id;
@@ -49,11 +51,11 @@ public class Residencias {
         this.id = id;
     }    
     
-    public byte[] getFoto() {
+    public byte[] getFotoResidencia() {
         return foto;
     }
 
-    public void setFoto(byte[] foto) {
+    public void setFotoResidencia(byte[] foto) {
         this.foto = foto;
     }
     
@@ -82,7 +84,7 @@ public class Residencias {
     }
     
     public int getOcupado() {
-        return precio;
+        return ocupado;
     }
 
     public void setOcupado(int ocupado) {
@@ -152,26 +154,30 @@ public class Residencias {
         }
     }
     
-    public void selectWithStatement() {
-    
+    public List<Residencias> selectWithStatement() {
+        List<Residencias> residenciasList = new ArrayList<>();
+         
         String sql = "SELECT * FROM RESIDENCIAS";
 
     try {
         // Crear una consulta preparada con placeholders (?)
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-
+        
         // Ejecutar la consulta preparada
         ResultSet rs = preparedStatement.executeQuery();
 
         while (rs.next()) {
-            id = rs.getInt("id");
-            foto = rs.getBytes("foto"); // Cambié getString a getBytes para el campo de la foto
-            nombre = rs.getString("nombre");
-            direccion = rs.getString("direccion");
-            precio = rs.getInt("precio");
-            ocupado = rs.getInt("ocupado");
+            Residencias residencia = new Residencias();
+            
+            residencia.setId(rs.getInt("id"));
+            residencia.setFotoResidencia(rs.getBytes("foto")); // Cambié getString a getBytes para el campo de la foto
+            residencia.setNombre(rs.getString("nombre"));
+            residencia.setDireccion(rs.getString("direccion"));
+            residencia.setPrecio(rs.getInt("precio"));
+            residencia.setOcupado(rs.getInt("ocupado"));
            
+            residenciasList.add(residencia);
+            
             System.out.println("Mensaje de la clase Residencias: " + id + "," + nombre + "," + direccion + "," + precio + "," + ocupado);
         }
 
@@ -182,6 +188,8 @@ public class Residencias {
     } catch (SQLException e) {
         System.out.println("Error during select: " + e);
     }
+    
+    return residenciasList;
   }
     
 }
