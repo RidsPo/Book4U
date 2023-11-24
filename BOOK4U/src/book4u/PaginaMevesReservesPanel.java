@@ -76,6 +76,8 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         BotonMonedero = new javax.swing.JButton();
         BotonUsuario = new javax.swing.JButton();
         BotonModificarReserva = new javax.swing.JButton();
+        Info = new javax.swing.JTextField();
+        Precio = new javax.swing.JTextField();
         Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -153,7 +155,18 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         });
         add(BotonModificarReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(1510, 410, 260, 90));
 
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_Pagina_MevesReserves.png"))); // NOI18N
+        Info.setText("jTextField2");
+        Info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoActionPerformed(evt);
+            }
+        });
+        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
+
+        Precio.setText("jTextField1");
+        add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 130, 70));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaMevesReserves.png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -229,6 +242,10 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonModificarReservaActionPerformed
 
+    private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InfoActionPerformed
+
     public void actualizarInterfazGrafica() {   
         
         Usuarios nuevaFoto = new Usuarios(nom_usuari, contra);
@@ -264,5 +281,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotonPaginaPrincipal;
     private javax.swing.JButton BotonUsuario;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JTextField Info;
+    private javax.swing.JTextField Precio;
     // End of variables declaration//GEN-END:variables
 }
