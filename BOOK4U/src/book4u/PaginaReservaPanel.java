@@ -10,6 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -34,6 +36,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     protected String contra;
     protected String nom;   
     
+    private byte[] imageData2;
         
     protected int id_residencia;
     protected byte[] foto_residencia;
@@ -43,9 +46,13 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     protected int ocupado_residencia;
     protected String precioFinal;
     
+    private List<Residencias> listaResidencias;
+    
     public PaginaReservaPanel(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
        super();
-        
+       
+       /*Parte para la informaciónd el usuario*/
+       
        this.id = id;
        this.foto = foto;
        this.nom_usuari = nom_usuari;
@@ -55,7 +62,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
        this.correu = correu;
        this.contra = contra;
        this.nom = nom;
-               
+       
         initComponents();
        
         ImageIcon originalIcon = new ImageIcon(foto);
@@ -82,40 +89,51 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
 
         actualizarInterfazGrafica();
         
+        /**/
+        
+        /*Parte para la información de la residencia*/
         Residencias residencias = new Residencias();
+
+           listaResidencias = new ArrayList<>();
         
-        residencias.selectWithStatement();
-       
-       this.id_residencia = residencias.id;
-       this.foto_residencia = residencias.foto;
-       this.nombre_residencia = residencias.nombre;
-       this.direccion_residencia = residencias.direccion;
-       this.precio_residencia = residencias.precio;
-       this.ocupado_residencia = residencias.ocupado;
-
-        ImageIcon originalIcon2 = new ImageIcon(foto_residencia);
+           listaResidencias = residencias.selectWithStatement();
         
-        Image originalImage2 = originalIcon.getImage();
+           if (!listaResidencias.isEmpty()){
+            mostrarInformacionResidencia(listaResidencias.get(0)); // Mostrar la primera residencia             
+        }
+           
+        for(Residencias residencia : listaResidencias){
+            this.id_residencia = residencia.getId();
+            this.foto_residencia = residencia.getFotoResidencia();
+            this.nombre_residencia = residencia.getNombre();
+            this.direccion_residencia = residencia.getDireccion();
+            this.precio_residencia = residencia.getPrecio();
+            this.ocupado_residencia = residencia.getOcupado();  
+            
+            ImageIcon originalIcon2 = new ImageIcon(foto_residencia);
         
-        Image resizedImage2 = originalImage.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
-
-        BufferedImage roundedImage2 = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g2d2 = roundedImage2.createGraphics();
-
-        g2d2.setClip(new Ellipse2D.Float(0, 0, 106, 106));
-
-        g2d2.drawImage(resizedImage2, 0, 0, null);
-
-        g2d2.dispose();
+            Image originalImage2 = originalIcon2.getImage();
         
-        ImageIcon finalIcon2 = new ImageIcon(resizedImage2);
-        
-        Foto.setIcon(finalIcon);
-        
-        System.out.println("Mensaje de la residencia: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
+            Image resizedImage2 = originalImage2.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
 
-        mostrarInformacionResidencia();
+            BufferedImage roundedImage2 = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics2D g2d2 = roundedImage2.createGraphics();
+
+            g2d2.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+
+            g2d2.drawImage(resizedImage2, 0, 0, null);
+
+            g2d2.dispose();
+        
+            ImageIcon finalIcon2 = new ImageIcon(resizedImage2);
+        
+            Foto.setIcon(finalIcon2);
+        
+            System.out.println("Mensaje de la residencia: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
+            
+            /**/
+        }    
     }
     
     /*getters*/
@@ -325,15 +343,12 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         add(Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
         add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 366, 320, 180));
 
-        Info.setText(nombre_residencia + direccion_residencia);
         Info.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InfoActionPerformed(evt);
             }
         });
         add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
-
-        Precio.setText(precioFinal);
         add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fondo_PaginaReserva.png"))); // NOI18N
@@ -365,7 +380,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
 
     private void BotonUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuarioActionPerformed
         // TODO add your handling code here:
-       JDialog dialog = new JDialog();
+        JDialog dialog = new JDialog();
         dialog.setLayout(new FlowLayout());
         dialog.setLocation(1720, 70); // Establece la ubicación en las coordenadas (300, 200)
        
@@ -453,25 +468,25 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
             File selectedFile = jf.getSelectedFile();
 
             // Almacenar la ruta del archivo seleccionado en la variable
-            imageData = getBytesFromFile(selectedFile);
+            imageData2 = getBytesFromFile(selectedFile);
            
-            System.out.println("Tamaño de la imagen en bytes: " + imageData.length);
+            System.out.println("Tamaño de la imagen en bytes: " + imageData2.length);
         }
     }//GEN-LAST:event_jSelectFotoActionPerformed
 
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
         // TODO add your handling code here:
         
-       /* String nombre = "Piso en Madrid";
-        String direccion = "Calle Girona, 25, 1a";
-        int precio = 20;
+       String nombre = "Piso en Tarragona";
+        String direccion = "Calle Font, 15, 2a";
+        int precio = 400;
         int ocupado = 0;
         
-       Residencias residencia = new Residencias(imageData, nombre, direccion, precio, ocupado);
+       Residencias residencia = new Residencias(imageData2, nombre, direccion, precio, ocupado);
        
        residencia.makeConnection();
        
-       residencia.insertWithStatement();*/
+       residencia.insertWithStatement();
     }//GEN-LAST:event_CrearActionPerformed
 
     private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
@@ -505,12 +520,17 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonUsuario.setIcon(finalIcon);     
     }
     
-    private void mostrarInformacionResidencia(){
-        Info.setText(nombre_residencia + direccion_residencia);
-        precioFinal = Integer.toString(precio_residencia);
-        Precio.setText(precioFinal);
+    private void mostrarInformacionResidencia(Residencias residencia) {
+        Info.setText(residencia.getNombre() + " - " + residencia.getDireccion());
+        Precio.setText(String.valueOf(residencia.getPrecio()));
+        // Otras actualizaciones de la interfaz según tus necesidades...
     }
-        
+    
+    private void actualizarInterfazGrafica(int index) {
+        if (index >= 0 && index < listaResidencias.size()) {
+            mostrarInformacionResidencia(listaResidencias.get(index));
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonCrearReserva;
     private javax.swing.JButton BotonCrearReserva1;
