@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class Credits {
     private static final String USER = "23_24_DAM2_RIDSPO";
     private static final String PWD = "Rids_Po_0";
-    private static final String URL = "jdbc:oracle:thin:@oracle.ielrna.com:1521:xe";
+    private static final String URL = "jdbc:oracle:thin:@192.168.3.26:1521:xe";
 
     protected int id_credit;
     protected int id_usuari;
