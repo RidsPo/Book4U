@@ -192,46 +192,53 @@ public class PaginaPerfilUsuario extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jCorreu.setBackground(new java.awt.Color(184, 221, 140));
+        jCorreu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jCorreu.setText(correu);
         jCorreu.setBorder(null);
         jCorreu.setFocusable(false);
-        add(jCorreu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 680, 210, 30));
+        add(jCorreu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 683, 210, 30));
 
         jDNI.setBackground(new java.awt.Color(184, 221, 140));
+        jDNI.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jDNI.setText(DNI);
         jDNI.setBorder(null);
         jDNI.setFocusable(false);
-        add(jDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 540, 220, 30));
+        add(jDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(1056, 540, 220, 30));
 
         jNom.setBackground(new java.awt.Color(184, 221, 140));
+        jNom.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jNom.setText(nom);
         jNom.setBorder(null);
         jNom.setFocusable(false);
-        add(jNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 400, 220, 30));
+        add(jNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1055, 397, 220, 30));
 
         jCognom.setBackground(new java.awt.Color(184, 221, 140));
+        jCognom.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jCognom.setText(cognom);
         jCognom.setBorder(null);
         jCognom.setFocusable(false);
-        add(jCognom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 400, 220, 30));
+        add(jCognom, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 398, 220, 30));
 
         jDomicili.setBackground(new java.awt.Color(184, 221, 140));
+        jDomicili.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jDomicili.setText(domicili);
         jDomicili.setBorder(null);
         jDomicili.setFocusable(false);
-        add(jDomicili, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 540, 210, 30));
+        add(jDomicili, new org.netbeans.lib.awtextra.AbsoluteConstraints(1405, 539, 210, 30));
 
         jNomUsuari.setBackground(new java.awt.Color(184, 221, 140));
+        jNomUsuari.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jNomUsuari.setText(nom_usuari);
         jNomUsuari.setBorder(null);
         jNomUsuari.setFocusable(false);
-        add(jNomUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 710, 280, 30));
+        add(jNomUsuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 714, 280, 30));
 
         jContra.setBackground(new java.awt.Color(184, 221, 140));
+        jContra.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jContra.setText(contra);
         jContra.setBorder(null);
         jContra.setFocusable(false);
-        add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1400, 690, 170, 20));
+        add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1405, 688, 170, 20));
 
         jBotonContra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
         jBotonContra.setBorder(null);

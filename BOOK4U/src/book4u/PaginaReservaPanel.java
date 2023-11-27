@@ -22,6 +22,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -142,8 +143,16 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
             Foto.setIcon(finalIcon1);
             
-            Info.setText(residencia1.getNombre() + residencia1.getDireccion());
+            Info.setText(residencia1.getNombre() + " en: " + residencia1.getDireccion());
             Precio.setText(String.valueOf(residencia1.getPrecio()));
+            
+            if(residencia1.getOcupado() == 0){
+                BotonCrearReserva.setVisible(true);
+                MensajeOcupado.setVisible(false);
+            } else if (residencia1.getOcupado() == 1) {
+                BotonCrearReserva.setVisible(false);
+                MensajeOcupado.setVisible(true);
+            }
             
             Residencias residencia2 = listaResidencias.get(1);
             
@@ -167,8 +176,16 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
             Foto1.setIcon(finalIcon2);
             
-            Info1.setText(residencia2.getNombre() + residencia2.getDireccion());
+            Info1.setText(residencia2.getNombre() + " en: " + residencia2.getDireccion());
             Precio1.setText(String.valueOf(residencia2.getPrecio()));
+            
+            if(residencia2.getOcupado() == 0){
+                BotonCrearReserva1.setVisible(true);
+                MensajeOcupado1.setVisible(false);
+            } else if (residencia2.getOcupado() == 1) {
+                BotonCrearReserva1.setVisible(false);
+                MensajeOcupado1.setVisible(true);
+            }
 
             Residencias residencia3 = listaResidencias.get(2);
             
@@ -192,8 +209,16 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
             Foto2.setIcon(finalIcon3);
             
-            Info2.setText(residencia3.getNombre() + residencia3.getDireccion());
+            Info2.setText(residencia3.getNombre() + " en: " + residencia3.getDireccion());
             Precio2.setText(String.valueOf(residencia3.getPrecio()));
+            
+            if(residencia3.getOcupado() == 0){
+                BotonCrearReserva2.setVisible(true);
+                MensajeOcupado2.setVisible(false);
+            } else if (residencia3.getOcupado() == 1) {
+                BotonCrearReserva2.setVisible(false);
+                MensajeOcupado2.setVisible(true);
+            }
         }
 
         /**/
@@ -278,6 +303,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MensajeOcupado = new javax.swing.JLabel();
+        MensajeOcupado1 = new javax.swing.JLabel();
+        MensajeOcupado2 = new javax.swing.JLabel();
         BotonMisReservas = new javax.swing.JButton();
         BotonPaginaPrincipal = new javax.swing.JButton();
         BotonHistorial = new javax.swing.JButton();
@@ -300,6 +328,36 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MensajeOcupado.setBackground(new java.awt.Color(255, 102, 102));
+        MensajeOcupado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MensajeOcupado.setForeground(new java.awt.Color(153, 0, 0));
+        MensajeOcupado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MensajeOcupado.setText("RESIDENCIA YA RESERVADA");
+        MensajeOcupado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
+        MensajeOcupado.setFocusable(false);
+        MensajeOcupado.setOpaque(true);
+        add(MensajeOcupado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1530, 400, 240, 110));
+
+        MensajeOcupado1.setBackground(new java.awt.Color(255, 102, 102));
+        MensajeOcupado1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MensajeOcupado1.setForeground(new java.awt.Color(153, 0, 0));
+        MensajeOcupado1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MensajeOcupado1.setText("RESIDENCIA YA RESERVADA");
+        MensajeOcupado1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
+        MensajeOcupado1.setFocusable(false);
+        MensajeOcupado1.setOpaque(true);
+        add(MensajeOcupado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1530, 640, 240, 110));
+
+        MensajeOcupado2.setBackground(new java.awt.Color(255, 102, 102));
+        MensajeOcupado2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        MensajeOcupado2.setForeground(new java.awt.Color(153, 0, 0));
+        MensajeOcupado2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        MensajeOcupado2.setText("RESIDENCIA YA RESERVADA");
+        MensajeOcupado2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0)));
+        MensajeOcupado2.setFocusable(false);
+        MensajeOcupado2.setOpaque(true);
+        add(MensajeOcupado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1530, 880, 240, 110));
 
         BotonMisReservas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         BotonMisReservas.setBorder(null);
@@ -392,7 +450,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
             }
         });
         add(BotonCrearReserva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 880, 220, 100));
-        add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 200, 180));
+        add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 200, 180));
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -413,7 +471,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
                 InfoActionPerformed(evt);
             }
         });
-        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 530, 180));
+        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 370, 530, 180));
 
         Precio.setBackground(new java.awt.Color(204, 204, 204));
         Precio.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -552,6 +610,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame = new JFrame("Seleccionar Fechas");
         JPanel panel = new JPanel();
+        Residencias residencia1 = listaResidencias.get(0);
 
         calendarioInicio = new JCalendar();
         JButton botonFechaInicio = new JButton("Elegir Fecha de Inicio");
@@ -572,8 +631,14 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         JButton botonEnviar = new JButton("CONFIRMAR");
         botonEnviar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                enviarReservaABaseDeDatos(calendarioInicio.getDate(), calendarioFin.getDate());
-                frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                if(Integer.valueOf(credits) - residencia1.getPrecio() < 0){
+                    JOptionPane.showMessageDialog(botonEnviar, "No tens prou crèdits.");
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                } else {
+                    int resta = Integer.valueOf(credits) - residencia1.getPrecio();
+                    enviarReservaABaseDeDatos(residencia1.getId(), id, residencia1.getPrecio(),calendarioInicio.getDate(), calendarioFin.getDate(), resta);
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                }
             }
         });
 
@@ -588,10 +653,93 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
 
     private void BotonCrearReserva1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReserva1ActionPerformed
         // TODO add your handling code here:
+        
+        frame = new JFrame("Seleccionar Fechas");
+        JPanel panel = new JPanel();
+        Residencias residencia2 = listaResidencias.get(1);
+
+        calendarioInicio = new JCalendar();
+        JButton botonFechaInicio = new JButton("Elegir Fecha de Inicio");
+        botonFechaInicio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioInicio);
+            }
+        });
+
+        calendarioFin = new JCalendar();
+        JButton botonFechaFin = new JButton("Elegir Fecha de Fin");
+        botonFechaFin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioFin);
+            }
+        });
+
+        JButton botonEnviar = new JButton("CONFIRMAR");
+        botonEnviar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(Integer.valueOf(credits) - residencia2.getPrecio() < 0){
+                    JOptionPane.showMessageDialog(botonEnviar, "No tens prou crèdits.");
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                } else {
+                    int resta = Integer.valueOf(credits) - residencia2.getPrecio();
+                    enviarReservaABaseDeDatos(residencia2.getId(), id, residencia2.getPrecio(),calendarioInicio.getDate(), calendarioFin.getDate(), resta);
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                }                
+            }
+        });
+
+        panel.add(botonFechaInicio);
+        panel.add(botonFechaFin);
+        panel.add(botonEnviar); // Agregar el botón "Enviar a la Base de Datos"
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
     }//GEN-LAST:event_BotonCrearReserva1ActionPerformed
 
     private void BotonCrearReserva2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCrearReserva2ActionPerformed
         // TODO add your handling code here:
+        frame = new JFrame("Seleccionar Fechas");
+        JPanel panel = new JPanel();
+        Residencias residencia3 = listaResidencias.get(3);
+
+        calendarioInicio = new JCalendar();
+        JButton botonFechaInicio = new JButton("Elegir Fecha de Inicio");
+        botonFechaInicio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioInicio);
+            }
+        });
+
+        calendarioFin = new JCalendar();
+        JButton botonFechaFin = new JButton("Elegir Fecha de Fin");
+        botonFechaFin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioFin);
+            }
+        });
+
+        JButton botonEnviar = new JButton("CONFIRMAR");
+        botonEnviar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if(Integer.valueOf(credits) - residencia3.getPrecio() < 0){
+                    JOptionPane.showMessageDialog(botonEnviar, "No tens prou crèdits.");
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                } else {
+                    int resta = Integer.valueOf(credits) - residencia3.getPrecio();
+                    enviarReservaABaseDeDatos(residencia3.getId(), id, residencia3.getPrecio(),calendarioInicio.getDate(), calendarioFin.getDate(), resta);
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                } 
+            }
+        });
+
+        panel.add(botonFechaInicio);
+        panel.add(botonFechaFin);
+        panel.add(botonEnviar); // Agregar el botón "Enviar a la Base de Datos"
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
     }//GEN-LAST:event_BotonCrearReserva2ActionPerformed
    
     private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
@@ -649,9 +797,11 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         frameCalendario.setVisible(true);
     }
     
-    private void enviarReservaABaseDeDatos(Date fechaInicio, Date fechaFin) {
-        Reserves reservas = new Reserves(id_residencia, ocupado_residencia);
+    private void enviarReservaABaseDeDatos(int id_residencia, int id_usuari, int precio, Date fechaInicio, Date fechaFin, int resta) {
+        
+        Reserves reservas = new Reserves(id_residencia, id_usuari, precio, fechaInicio, fechaFin, resta);
         reservas.insertWithStatement();
+        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -669,6 +819,9 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private javax.swing.JTextField Info;
     private javax.swing.JTextField Info1;
     private javax.swing.JTextField Info2;
+    private javax.swing.JLabel MensajeOcupado;
+    private javax.swing.JLabel MensajeOcupado1;
+    private javax.swing.JLabel MensajeOcupado2;
     private javax.swing.JTextField Precio;
     private javax.swing.JTextField Precio1;
     private javax.swing.JTextField Precio2;

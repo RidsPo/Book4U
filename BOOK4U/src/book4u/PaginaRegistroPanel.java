@@ -67,38 +67,49 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
         add(jRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 930, -1, -1));
 
         jDNI.setBackground(new java.awt.Color(184, 221, 140));
+        jDNI.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jDNI.setBorder(null);
-        add(jDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 600, 450, 30));
+        add(jDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 597, 450, 30));
 
         jNom.setBackground(new java.awt.Color(184, 221, 140));
+        jNom.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jNom.setBorder(null);
-        add(jNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, 450, 30));
+        jNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNomActionPerformed(evt);
+            }
+        });
+        add(jNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 337, 450, 30));
 
         jDomicili.setBackground(new java.awt.Color(184, 221, 140));
+        jDomicili.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jDomicili.setBorder(null);
-        add(jDomicili, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 730, 450, 30));
+        add(jDomicili, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 727, 450, 30));
 
         jNom_Usuari.setBackground(new java.awt.Color(184, 221, 140));
+        jNom_Usuari.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jNom_Usuari.setBorder(null);
         jNom_Usuari.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jNom_UsuariActionPerformed(evt);
             }
         });
-        add(jNom_Usuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 850, 450, 30));
+        add(jNom_Usuari, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 846, 450, 30));
 
         jCorreu.setBackground(new java.awt.Color(184, 221, 140));
+        jCorreu.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jCorreu.setBorder(null);
-        add(jCorreu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 470, 450, 30));
+        add(jCorreu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1067, 471, 450, 30));
 
         jCognoms.setBackground(new java.awt.Color(184, 221, 140));
+        jCognoms.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jCognoms.setBorder(null);
         jCognoms.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCognomsActionPerformed(evt);
             }
         });
-        add(jCognoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 450, 30));
+        add(jCognoms, new org.netbeans.lib.awtextra.AbsoluteConstraints(512, 471, 450, 30));
 
         jSelectFoto.setBackground(new java.awt.Color(204, 204, 204));
         jSelectFoto.setText("Seleccionar imagen...");
@@ -110,22 +121,24 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
         add(jSelectFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 830, 470, 60));
 
         jContra.setBackground(new java.awt.Color(184, 221, 140));
+        jContra.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jContra.setBorder(null);
         jContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jContraActionPerformed(evt);
             }
         });
-        add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 600, 400, 30));
+        add(jContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 597, 400, 30));
 
         jRepetirContra.setBackground(new java.awt.Color(184, 221, 140));
+        jRepetirContra.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jRepetirContra.setBorder(null);
         jRepetirContra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRepetirContraActionPerformed(evt);
             }
         });
-        add(jRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 730, 400, 30));
+        add(jRepetirContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 727, 400, 30));
 
         jMostrarEsconder1.setBackground(new java.awt.Color(184, 221, 140));
         jMostrarEsconder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
@@ -267,6 +280,10 @@ public class PaginaRegistroPanel extends javax.swing.JPanel {
             }
         }  
     }//GEN-LAST:event_jRegistrarActionPerformed
+
+    private void jNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jNomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

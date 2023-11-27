@@ -22,6 +22,8 @@ public class Reserves {
    
     protected int ocupado;
     
+    protected int resta;
+    
     static Connection connection = null;
     
     public Reserves() {
@@ -31,20 +33,20 @@ public class Reserves {
         connection = makeConnection();
     }
     
-    public Reserves(int id, int id_residencia, int id_usuari, int precio, Date data_inici, Date data_fi) {
+    public Reserves(int id_residencia, int id_usuari, int precio, Date data_inici, Date data_fi, int resta) {
         super();
         
-        this.id = id;
         this.id_residencia = id_residencia;
         this.id_usuari = id_usuari;
         this.precio = precio;
         this.data_inici = data_inici;
         this.data_fi = data_fi;
+        this.resta = resta;
         
         connection = makeConnection();
     }
     
-        public Reserves(int id_residencia, int ocupado) {
+    public Reserves(int id_residencia, int ocupado) {
         super();
         
         this.id_residencia = id_residencia;
@@ -109,6 +111,14 @@ public class Reserves {
         this.ocupado = ocupado;
     }
     
+    public int getResta(){
+        return resta;
+    }
+    
+    public void setResta(int resta){
+        this.resta = resta;
+    }
+    
     /*@Override
     public String toString() {
         return "la residencia se llama " + this.nombre + " y su direccion es " + this.direccion;
@@ -153,8 +163,11 @@ public class Reserves {
             // Crear una consulta preparada con placeholders (?)
             String sql = "INSERT INTO RESERVES (id_residensia, id_usuari, precio, fecha_inicio, fecha_final) VALUES (?, ?, ?, ?, ?)";
             String sql2 = "UPDATE RESIDENCIAS SET ocupado = ? WHERE id = ?";
+            String sql3 = "UPDATE CREDITOS SET monedavirtual = ? WHERE id_usuario = ?";
+            
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             PreparedStatement preparedStatement2 = connection.prepareStatement(sql2);
+            PreparedStatement preparedStatement3 = connection.prepareStatement(sql3);
 
             // Establecer los valores de los parámetros
             java.sql.Date sqlDataInici = new java.sql.Date(data_inici.getTime());
@@ -166,16 +179,21 @@ public class Reserves {
             preparedStatement.setDate(4, sqlDataInici); // Establecer la fecha de inicio como java.sql.Date
             preparedStatement.setDate(5, sqlDataFi);
 
-            preparedStatement2.setInt(1, ocupado);
+            preparedStatement2.setInt(1, 1);
             preparedStatement2.setInt(2, id_residencia);
+            
+            preparedStatement3.setInt(1, resta);
+            preparedStatement3.setInt(2, id_usuari);
 
             // Ejecutar la consulta preparada
             preparedStatement.executeUpdate();
             preparedStatement2.executeUpdate();
+            preparedStatement3.executeUpdate();
 
             // Cerrar la consulta preparada
             preparedStatement.close();
             preparedStatement2.close();
+            preparedStatement3.close();
 
         } catch (SQLException e) {
             System.out.println("Error during insert: " + e);

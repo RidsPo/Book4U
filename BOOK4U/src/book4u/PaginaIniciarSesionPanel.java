@@ -29,6 +29,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jNombreUsuario.setBackground(new java.awt.Color(184, 221, 140));
+        jNombreUsuario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jNombreUsuario.setBorder(null);
         jNombreUsuario.setMinimumSize(new java.awt.Dimension(64, 40));
         jNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -36,7 +37,7 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
                 jNombreUsuarioActionPerformed(evt);
             }
         });
-        add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 530, 450, 50));
+        add(jNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 532, 450, 50));
 
         BotonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ojo.png"))); // NOI18N
         BotonMostrar.setBorder(null);
@@ -53,13 +54,14 @@ public class PaginaIniciarSesionPanel extends javax.swing.JPanel {
         add(BotonMostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 750, 60, -1));
 
         jPasswordField1.setBackground(new java.awt.Color(184, 221, 140));
+        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jPasswordField1.setBorder(null);
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
             }
         });
-        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 742, 370, 60));
+        add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(745, 739, 370, 60));
 
         jBotonRegistro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Boton_Registro_PaginaIniciarSesion.png"))); // NOI18N
         jBotonRegistro.setBorder(null);
