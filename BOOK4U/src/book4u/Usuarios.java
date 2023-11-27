@@ -11,7 +11,6 @@ public class Usuarios {
     private static final String USER = "23_24_DAM2_RIDSPO";
     private static final String PWD = "Rids_Po_0";
     private static final String URL = "jdbc:oracle:thin:@192.168.3.26:1521:xe";
-    
     protected int id;
     protected byte[] foto;
     protected String nom_usuari;

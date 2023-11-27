@@ -144,6 +144,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
         jTextField1.setText("adsasdasd");
         jTextField1.setToolTipText("");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jTextField1.setFocusable(false);
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 50, 180, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaHistorial (1).png"))); // NOI18N

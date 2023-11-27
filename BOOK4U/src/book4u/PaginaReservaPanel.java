@@ -118,26 +118,46 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         listaResidencias = new ArrayList<>();
         
         listaResidencias = residencias.selectWithStatement();
-
-        for(Residencias residencia : listaResidencias){
-            this.id_residencia = residencia.getId();
-            this.foto_residencia = residencia.getFotoResidencia();
-            this.nombre_residencia = residencia.getNombre();
-            this.direccion_residencia = residencia.getDireccion();
-            this.precio_residencia = residencia.getPrecio();
-            this.ocupado_residencia = residencia.getOcupado();  
+        
+        if(listaResidencias.size() >= 3){
+            Residencias residencia1 = listaResidencias.get(0);
             
-            ImageIcon originalIcon2 = new ImageIcon(foto_residencia);
+            ImageIcon originalIcon1 = new ImageIcon(residencia1.getFotoResidencia());
+        
+            Image originalImage1 = originalIcon1.getImage();
+        
+            Image resizedImage1 = originalImage1.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+
+            BufferedImage roundedImage1 = new BufferedImage(150, 150, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics2D g2d1 = roundedImage1.createGraphics();
+
+            g2d1.setClip(new Ellipse2D.Float(0, 0, 150, 150));
+
+            g2d1.drawImage(resizedImage1, 0, 0, null);
+
+            g2d1.dispose();
+        
+            ImageIcon finalIcon1 = new ImageIcon(resizedImage1);
+        
+            Foto.setIcon(finalIcon1);
+            
+            Info.setText(residencia1.getNombre() + residencia1.getDireccion());
+            Precio.setText(String.valueOf(residencia1.getPrecio()));
+            
+            Residencias residencia2 = listaResidencias.get(1);
+            
+            ImageIcon originalIcon2 = new ImageIcon(residencia1.getFotoResidencia());
         
             Image originalImage2 = originalIcon2.getImage();
         
-            Image resizedImage2 = originalImage2.getScaledInstance(106, 106, Image.SCALE_SMOOTH);
+            Image resizedImage2 = originalImage2.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
 
-            BufferedImage roundedImage2 = new BufferedImage(106, 106, BufferedImage.TYPE_INT_ARGB);
+            BufferedImage roundedImage2 = new BufferedImage(150, 150, BufferedImage.TYPE_INT_ARGB);
 
             Graphics2D g2d2 = roundedImage2.createGraphics();
 
-            g2d2.setClip(new Ellipse2D.Float(0, 0, 106, 106));
+            g2d2.setClip(new Ellipse2D.Float(0, 0, 150, 150));
 
             g2d2.drawImage(resizedImage2, 0, 0, null);
 
@@ -145,13 +165,38 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         
             ImageIcon finalIcon2 = new ImageIcon(resizedImage2);
         
-            Foto.setIcon(finalIcon2);
-        
-            System.out.println("Mensaje de la residencia: " + id_residencia + foto_residencia + nombre_residencia + direccion_residencia + precio_residencia + ocupado_residencia);        
+            Foto1.setIcon(finalIcon2);
             
-            mostrarResidencia();
-            /**/
-        }    
+            Info1.setText(residencia2.getNombre() + residencia2.getDireccion());
+            Precio1.setText(String.valueOf(residencia2.getPrecio()));
+
+            Residencias residencia3 = listaResidencias.get(2);
+            
+            ImageIcon originalIcon3 = new ImageIcon(residencia1.getFotoResidencia());
+        
+            Image originalImage3 = originalIcon3.getImage();
+        
+            Image resizedImage3 = originalImage3.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+
+            BufferedImage roundedImage3 = new BufferedImage(150, 150, BufferedImage.TYPE_INT_ARGB);
+
+            Graphics2D g2d3 = roundedImage3.createGraphics();
+
+            g2d3.setClip(new Ellipse2D.Float(0, 0, 150, 150));
+
+            g2d3.drawImage(resizedImage3, 0, 0, null);
+
+            g2d3.dispose();
+        
+            ImageIcon finalIcon3 = new ImageIcon(resizedImage3);
+        
+            Foto2.setIcon(finalIcon3);
+            
+            Info2.setText(residencia3.getNombre() + residencia3.getDireccion());
+            Precio2.setText(String.valueOf(residencia3.getPrecio()));
+        }
+
+        /**/
     }
     
     /*getters*/
@@ -241,9 +286,17 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonCrearReserva1 = new javax.swing.JButton();
         BotonCrearReserva2 = new javax.swing.JButton();
         Foto = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         Info = new javax.swing.JTextField();
         Precio = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        Foto1 = new javax.swing.JLabel();
+        Info1 = new javax.swing.JTextField();
+        Precio1 = new javax.swing.JTextField();
+        Foto2 = new javax.swing.JLabel();
+        Info2 = new javax.swing.JTextField();
+        Precio2 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -305,6 +358,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonCrearReserva.setBorder(null);
         BotonCrearReserva.setBorderPainted(false);
         BotonCrearReserva.setContentAreaFilled(false);
+        BotonCrearReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonCrearReserva.setFocusable(false);
         BotonCrearReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,6 +371,7 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonCrearReserva1.setBorder(null);
         BotonCrearReserva1.setBorderPainted(false);
         BotonCrearReserva1.setContentAreaFilled(false);
+        BotonCrearReserva1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonCrearReserva1.setFocusable(false);
         BotonCrearReserva1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,29 +384,94 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         BotonCrearReserva2.setBorder(null);
         BotonCrearReserva2.setBorderPainted(false);
         BotonCrearReserva2.setContentAreaFilled(false);
+        BotonCrearReserva2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BotonCrearReserva2.setFocusable(false);
         BotonCrearReserva2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonCrearReserva2ActionPerformed(evt);
             }
         });
-        add(BotonCrearReserva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 870, 220, 100));
-        add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 366, 320, 180));
-
-        Info.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InfoActionPerformed(evt);
-            }
-        });
-        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(591, 362, 530, 180));
-        add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
+        add(BotonCrearReserva2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1540, 880, 220, 100));
+        add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 200, 180));
 
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("adkjfadahkfds");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jTextField1.setFocusable(false);
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 50, 180, 80));
+
+        Info.setBackground(new java.awt.Color(204, 204, 204));
+        Info.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Info.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Info.setText("ejemplo");
+        Info.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Info.setFocusable(false);
+        Info.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoActionPerformed(evt);
+            }
+        });
+        add(Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 380, 530, 180));
+
+        Precio.setBackground(new java.awt.Color(204, 204, 204));
+        Precio.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Precio.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Precio.setText("ejemplo");
+        Precio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Precio.setFocusable(false);
+        add(Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(1301, 422, 140, 70));
+        add(Foto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 610, 200, 180));
+
+        Info1.setBackground(new java.awt.Color(204, 204, 204));
+        Info1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Info1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Info1.setText("ejemplo");
+        Info1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Info1.setFocusable(false);
+        Info1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Info1ActionPerformed(evt);
+            }
+        });
+        add(Info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 610, 530, 180));
+
+        Precio1.setBackground(new java.awt.Color(204, 204, 204));
+        Precio1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Precio1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Precio1.setText("ejemplo");
+        Precio1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Precio1.setFocusable(false);
+        add(Precio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 660, 140, 70));
+        add(Foto2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 840, 200, 180));
+
+        Info2.setBackground(new java.awt.Color(204, 204, 204));
+        Info2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Info2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Info2.setText("ejemplo");
+        Info2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Info2.setFocusable(false);
+        Info2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Info2ActionPerformed(evt);
+            }
+        });
+        add(Info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 840, 530, 180));
+
+        Precio2.setBackground(new java.awt.Color(204, 204, 204));
+        Precio2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Precio2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        Precio2.setText("ejemplo");
+        Precio2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Precio2.setFocusable(false);
+        add(Precio2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 900, 140, 70));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Line 2.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 810, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Line 2.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/PaginaReserva (1).png"))); // NOI18N
         add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -477,6 +597,14 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private void InfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InfoActionPerformed
+
+    private void Info1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Info1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Info1ActionPerformed
+
+    private void Info2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Info2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Info2ActionPerformed
     
     public void actualizarInterfazGrafica() {   
         
@@ -503,19 +631,6 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
         ImageIcon finalIcon = new ImageIcon(resizedImage);
         
         BotonUsuario.setIcon(finalIcon);     
-    }
-    
-    private void mostrarResidencia() {
-            if(!listaResidencias.isEmpty() && indiceActual < listaResidencias.size()){
-                Residencias residencia = listaResidencias.get(indiceActual);
-                Info.setText(residencia.getNombre() + residencia.getDireccion());
-                Precio.setText(Integer.toString(residencia.getPrecio()));
-                
-                indiceActual++;
-                if(indiceActual >= listaResidencias.size()){
-                    indiceActual = 0;
-                }
-            }
     }
     
     private void mostrarCalendario(final JCalendar calendario) {
@@ -549,8 +664,16 @@ public class PaginaReservaPanel extends javax.swing.JPanel {
     private javax.swing.JButton BotonUsuario;
     private javax.swing.JLabel Fondo;
     private javax.swing.JLabel Foto;
+    private javax.swing.JLabel Foto1;
+    private javax.swing.JLabel Foto2;
     private javax.swing.JTextField Info;
+    private javax.swing.JTextField Info1;
+    private javax.swing.JTextField Info2;
     private javax.swing.JTextField Precio;
+    private javax.swing.JTextField Precio1;
+    private javax.swing.JTextField Precio2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
