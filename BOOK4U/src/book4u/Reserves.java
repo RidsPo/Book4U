@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Reserves {
     private static final String USER = "23_24_DAM2_RIDSPO";
@@ -26,9 +28,10 @@ public class Reserves {
     
     static Connection connection = null;
     
-    public Reserves() {
+    public Reserves(int id_usuari) {
         super();
 
+        this.id_usuari = id_usuari;
         
         connection = makeConnection();
     }
@@ -91,7 +94,7 @@ public class Reserves {
         return data_inici;
     }
 
-    public void setDataInici(Date DataInici) {
+    public void setDataInici(Date data_inici) {
         this.data_inici = data_inici;
     }
     
@@ -200,26 +203,33 @@ public class Reserves {
         }
     }
     
-    public void selectWithStatement() {
-    
-        String sql = "SELECT * FROM RESERVES";
+    public List<Reserves> selectWithStatement() {
+        List<Reserves> reservesList = new ArrayList<>();
+         
+        String sql = "SELECT * FROM RESERVES WHERE id_usuari = ?";
 
     try {
         // Crear una consulta preparada con placeholders (?)
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-
+        
+        preparedStatement.setInt(1, id_usuari);
+        
         // Ejecutar la consulta preparada
         ResultSet rs = preparedStatement.executeQuery();
 
         while (rs.next()) {
-            id = rs.getInt("id");
-            id_residencia = rs.getInt("id_residensia"); // Cambié getString a getBytes para el campo de la foto
-            id_usuari= rs.getInt("id_usuari");
-            precio = rs.getInt("precio");
-            data_inici = rs.getDate("fecha_inicio");
-            data_fi = rs.getDate("fecha_final");
-            System.out.println("Mensaje de la clase Reserves: " + id + "," + id_residencia + "," + id_usuari + "," + precio + "," + data_inici+ "," + data_fi);
+            Reserves reserva = new Reserves(id_usuari);
+            
+            reserva.setId(rs.getInt("id"));
+            reserva.setIdResidencia(rs.getInt("id_residensia")); // Cambié getString a getBytes para el campo de la foto
+            reserva.setIdUsuari(rs.getInt("id_usuari"));
+            reserva.setPrecio(rs.getInt("precio"));
+            reserva.setDataInici(rs.getDate("fecha_inicio"));
+            reserva.setDataFi(rs.getDate("fecha_final"));
+           
+            reservesList.add(reserva);
+            
+            System.out.println("Mensaje de la clase Reserves: " + reserva.getId() + "," + reserva.getIdResidencia() + "," + reserva.getIdUsuari() + "," + reserva.getPrecio() + "," + reserva.getDataInici() + "," + reserva.getDataFi());
         }
 
         // Cerrar la consulta preparada y el resultado
@@ -229,6 +239,9 @@ public class Reserves {
     } catch (SQLException e) {
         System.out.println("Error during select: " + e);
     }
+    
+    return reservesList;
   }
+  
     
 }
