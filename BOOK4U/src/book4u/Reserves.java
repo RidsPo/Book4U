@@ -58,6 +58,15 @@ public class Reserves {
         connection = makeConnection();
     }
     
+    public Reserves(int id_reserva, Date fecha_inici, Date fecha_fi ) {
+        super();
+        
+        this.id = id_reserva;
+        this.data_inici = fecha_inici;
+        this.data_fi = fecha_fi;
+        connection = makeConnection();
+    }
+    
     public int getId() {
         return id;
     }
@@ -242,6 +251,29 @@ public class Reserves {
     
     return reservesList;
   }
-  
+    
+    
+public void updateWithStatement() {
+    try {
+        // Crear una consulta preparada con placeholders (?)
+        String sql = "UPDATE RESERVES SET fecha_inicio = ?, fecha_final = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        // Establecer los valores de los parámetros
+        preparedStatement.setDate(1, (java.sql.Date) data_inici);
+        preparedStatement.setDate(2, (java.sql.Date) data_fi);
+        preparedStatement.setInt(3, id);
+        
+
+        // Ejecutar la consulta preparada
+        preparedStatement.executeUpdate();
+
+        // Cerrar la consulta preparada
+        preparedStatement.close();
+
+    } catch (SQLException e) {
+        System.out.println("Error during update: " + e);
+    }
+}
     
 }
