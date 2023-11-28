@@ -1,17 +1,24 @@
 package book4u;
 
+import com.toedter.calendar.JCalendar;
 import java.awt.FlowLayout;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 public class PaginaMevesReservesPanel extends javax.swing.JPanel {
@@ -31,6 +38,9 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
     protected String credits;
     
     private List<Reserves> listaReserves;
+        private JCalendar calendarioInicio;
+    private JCalendar calendarioFin;
+    private JFrame frame;
     
     public PaginaMevesReservesPanel(int id, byte[] foto, String nom_usuari, String cognom, String DNI, String domicili, String correu, String contra, String nom) {
        super();
@@ -358,8 +368,65 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
 
     private void BotonModificarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarReservaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonModificarReservaActionPerformed
+               frame = new JFrame("Seleccionar Fechas");
+        JPanel panel = new JPanel();
+        Reserves reserva1 = listaReserves.get(0);
 
+        calendarioInicio = new JCalendar();
+        JButton botonFechaInicio = new JButton("Elegir Fecha de Inicio");
+        botonFechaInicio.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioInicio);
+            }
+        });
+
+        calendarioFin = new JCalendar();
+        JButton botonFechaFin = new JButton("Elegir Fecha de Fin");
+        botonFechaFin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mostrarCalendario(calendarioFin);
+            }
+        });
+
+        JButton botonEnviar = new JButton("CONFIRMAR");
+        botonEnviar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            
+                  
+                    enviarReservaABaseDeDatos(id,calendarioInicio.getDate(), calendarioFin.getDate());
+                    frame.dispose(); // Cerrar el pop-up después de enviar a la base de datos
+                }
+        });
+
+        panel.add(botonFechaInicio);
+        panel.add(botonFechaFin);
+        panel.add(botonEnviar); // Agregar el botón "Enviar a la Base de Datos"
+
+        frame.add(panel);
+        frame.pack();
+        frame.setVisible(true);
+    }//GEN-LAST:event_BotonModificarReservaActionPerformed
+      private void enviarReservaABaseDeDatos(int id,Date fechaInicio, Date fechaFin) {
+        
+        Reserves reservas = new Reserves( id,fechaInicio, fechaFin);
+        reservas.updateWithStatement();
+        
+    }
+    private void mostrarCalendario(final JCalendar calendario) {
+        final JFrame frameCalendario = new JFrame("Calendario");
+        JPanel panelCalendario = new JPanel();
+        panelCalendario.add(calendario);
+
+        calendario.getDayChooser().addPropertyChangeListener("day", new PropertyChangeListener() {
+            public void propertyChange(PropertyChangeEvent e) {
+                frameCalendario.dispose(); // Cierra el calendario al seleccionar una fecha
+            }   
+        });
+
+        frameCalendario.add(panelCalendario);
+        frameCalendario.pack();
+        frameCalendario.setVisible(true);
+    }
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
