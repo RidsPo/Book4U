@@ -1046,7 +1046,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
     panel.add(mensajeLabel);
 
     // Botones personalizados
-    Object[] opciones = {"Comprar", "Cancelar"};
+    Object[] opciones = {"Eliminar", "Cancelar"};
 
     // Muestra el cuadro de diálogo personalizado
     int result = JOptionPane.showOptionDialog(
@@ -1089,7 +1089,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
     panel.add(mensajeLabel);
 
     // Botones personalizados
-    Object[] opciones = {"Comprar", "Cancelar"};
+    Object[] opciones = {"Eliminar", "Cancelar"};
 
     // Muestra el cuadro de diálogo personalizado
     int result = JOptionPane.showOptionDialog(
@@ -1132,7 +1132,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
     panel.add(mensajeLabel);
 
     // Botones personalizados
-    Object[] opciones = {"Comprar", "Cancelar"};
+    Object[] opciones = {"Eliminar", "Cancelar"};
 
     // Muestra el cuadro de diálogo personalizado
     int result = JOptionPane.showOptionDialog(
