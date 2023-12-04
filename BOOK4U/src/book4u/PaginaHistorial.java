@@ -433,6 +433,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
         NullMensaje.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NullMensaje.setText("NO TENS CAP RESERVA CADUCADA");
         NullMensaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NullMensaje.setFocusable(false);
         add(NullMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 590, 820, 110));
 
         LesMevesReserves.setBorder(null);

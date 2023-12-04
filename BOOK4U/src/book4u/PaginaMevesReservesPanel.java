@@ -531,6 +531,7 @@ public class PaginaMevesReservesPanel extends javax.swing.JPanel {
         NullMensaje.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         NullMensaje.setText("NO TENS CAP RESERVA");
         NullMensaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        NullMensaje.setFocusable(false);
         add(NullMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 680, 110));
 
         BotonNuevaReserva.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
