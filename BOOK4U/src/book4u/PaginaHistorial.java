@@ -116,7 +116,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
             
             Info1.setText(reserva1.getNombre() + " en: " + reserva1.getDireccion());
             Creditos1.setText(String.valueOf(reserva1.getPrecio()));
-            Precio1.setText(String.valueOf(reserva1.getPrecio() / 10));
+            Precio1.setText(String.valueOf(reserva1.getPrecio() * 10));
             
             Foto1.setVisible(true);    
             Foto2.setVisible(false);
@@ -199,11 +199,11 @@ public class PaginaHistorial extends javax.swing.JPanel {
                      
             Info1.setText(reserva1.getNombre() + " en: " + reserva1.getDireccion());
             Creditos1.setText(String.valueOf(reserva1.getPrecio()));
-            Precio1.setText(String.valueOf(reserva1.getPrecio() / 10));
+            Precio1.setText(String.valueOf(reserva1.getPrecio() * 10));
             
             Info2.setText(reserva2.getNombre() + " en: " + reserva2.getDireccion());
             Creditos2.setText(String.valueOf(reserva2.getPrecio()));
-            Precio2.setText(String.valueOf(reserva2.getPrecio() / 10));
+            Precio2.setText(String.valueOf(reserva2.getPrecio() * 10));
             
             Foto1.setVisible(true);    
             Foto2.setVisible(true);
@@ -309,15 +309,15 @@ public class PaginaHistorial extends javax.swing.JPanel {
             
             Info1.setText(reserva1.getNombre() + " en: " + reserva1.getDireccion());
             Creditos1.setText(String.valueOf(reserva1.getPrecio()));
-            Precio1.setText(String.valueOf(reserva1.getPrecio() / 10));
+            Precio1.setText(String.valueOf(reserva1.getPrecio() * 10));
             
             Info2.setText(reserva2.getNombre() + " en: " + reserva2.getDireccion());
             Creditos2.setText(String.valueOf(reserva2.getPrecio()));
-            Precio2.setText(String.valueOf(reserva2.getPrecio() / 10));
+            Precio2.setText(String.valueOf(reserva2.getPrecio() * 10));
             
             Info3.setText(reserva3.getNombre() + " en: " + reserva3.getDireccion());
             Creditos3.setText(String.valueOf(reserva3.getPrecio()));
-            Precio3.setText(String.valueOf(reserva3.getPrecio() / 10));
+            Precio3.setText(String.valueOf(reserva3.getPrecio() * 10));
             
             Foto1.setVisible(true);    
             Foto2.setVisible(true);
@@ -512,6 +512,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
         TituloCreditos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TituloCreditos1.setText("CRÈDITS:");
         TituloCreditos1.setBorder(null);
+        TituloCreditos1.setFocusable(false);
         add(TituloCreditos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1184, 380, 110, -1));
 
         Creditos1.setBackground(new java.awt.Color(204, 204, 204));
@@ -558,6 +559,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
         TituloCreditos2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TituloCreditos2.setText("CRÈDITS:");
         TituloCreditos2.setBorder(null);
+        TituloCreditos2.setFocusable(false);
         add(TituloCreditos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1185, 600, 110, -1));
 
         Creditos2.setBackground(new java.awt.Color(204, 204, 204));
@@ -604,6 +606,7 @@ public class PaginaHistorial extends javax.swing.JPanel {
         TituloCreditos3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TituloCreditos3.setText("CRÈDITS:");
         TituloCreditos3.setBorder(null);
+        TituloCreditos3.setFocusable(false);
         add(TituloCreditos3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1185, 820, 110, -1));
 
         Creditos3.setBackground(new java.awt.Color(204, 204, 204));
